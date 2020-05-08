@@ -27,72 +27,6 @@ const noTransitionConfig = () => ({
   },
 });
 
-// const StoreTab = createStackNavigator(
-//   {
-//     History: {screen: Store},
-//   },
-//   {
-//     headerMode: 'none',
-//     cardStyle: {
-//       backgroundColor: 'white',
-//       opacity: 1,
-//     },
-//   },
-// );
-// const HomeTab = createStackNavigator(
-//   {
-//     Home: {screen: Home},
-//   },
-//   {
-//     headerMode: 'none',
-//     cardStyle: {
-//       backgroundColor: 'white',
-//       opacity: 1,
-//     },
-//   },
-// );
-
-// const ProfileTab = createStackNavigator(
-//   {
-//     ProfileTab: {screen: Profile},
-//   },
-//   {
-//     headerMode: 'none',
-//     cardStyle: {
-//       backgroundColor: 'white',
-//       opacity: 1,
-//     },
-//   },
-// );
-
-// const EarnTab = createStackNavigator(
-//   {
-//     EarnTab: {screen: Earn},
-//   },
-//   {
-//     headerMode: 'none',
-//     cardStyle: {
-//       backgroundColor: 'white',
-//       opacity: 1,
-//     },
-//   },
-// );
-
-// //Tab Navigation
-// const TabNavigator = createBottomTabNavigator(
-//   {
-//     HomeTab: {screen: HomeTab},
-//     StoreTab: {screen: StoreTab},
-//     ProfileTab: {screen: ProfileTab},
-//     EarnTab: {screen: EarnTab}
-//   },
-//   {
-//     tabBarComponent: BottomNavContainer,
-//     tabBarPosition: 'top',
-//     swipeEnabled: false,
-//     animationEnabled: false,
-//   },
-// );
 const HomeStack = createStackNavigator(
   {
     home: Home,
@@ -135,7 +69,6 @@ var AppDrawer = createDrawerNavigator(
   },
   {
     drawerType: 'front',
-    //initialRouteName:'Merchants',
     drawerBackgroundColor: LIGHTBLUE.light,
 
     contentOptions: {

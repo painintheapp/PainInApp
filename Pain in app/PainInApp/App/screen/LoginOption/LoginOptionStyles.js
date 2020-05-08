@@ -23,24 +23,6 @@ const LoginOptionStyles = {
     flex: 0.7;
     alignItems: center;
   `,
-  AppNameLogo: styled.Image`
-    height: 50px;
-    width: ${SCREEN.width /2.5}px;
-  `,
-  InvestText: styled.Text`
-    fontSize: 30px;
-    fontWeight: bold;
-    textAlign: center;
-    marginTop: 15px;
-    lineHeight: 45px;
-    color: ${WHITE.dark};
-  `,
-  AbsoluteTrendImage: styled.Image`
-    width: ${SCREEN.width};
-    height: ${SCREEN.height / 4}px;
-    position: absolute;
-    top: 0;
-  `,
   BottomButtonView: styled.View`
     marginTop: ${SCREEN.height / 3.7}px;
     width: ${SCREEN.width}px;

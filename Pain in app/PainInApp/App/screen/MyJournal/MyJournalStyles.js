@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {WHITE, BLUE, APPCOLOR} from '../../helper/Color';
+import {WHITE, APPCOLOR} from '../../helper/Color';
 import { SCREEN, isIphoneXorAbove } from '../../helper/Constant';
 const MyJournalStyles = {
   WrapperViewVertical: styled.View`
