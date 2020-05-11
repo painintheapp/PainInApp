@@ -9,6 +9,7 @@ import SignUpStyle from './SignUpStyle';
 import { BLACK, WHITE, APPCOLOR, LIGHTBLUE } from '../../helper/Color';
 import Header from '../../component/Header';
 import Loader from '../../component/Loader';
+import { SCREEN } from '../../helper/Constant';
 
 //0039F8
 class SignUp extends Component {
@@ -26,6 +27,7 @@ class SignUp extends Component {
       phone_no: '',
       phone_selected: false,
       isLoading: false,
+      male: false,
     };
   }
 
@@ -41,79 +43,94 @@ class SignUp extends Component {
                 </SignUpStyle.BackButton>
               </SignUpStyle.BackView>
             </SignUpStyle.TopView>
-            <SignUpStyle.LoginText>
-              Sign up {'\n'}to use App
-          </SignUpStyle.LoginText>
-            <SignUpStyle.TextInputWrapper>
-              <SignUpStyle.TextInputText>
-                {this.state.email_selected && 'EMAIL'}
-              </SignUpStyle.TextInputText>
-              <SignUpStyle.InputFieldAndIconView style={{ borderBottomColor: this.state.email_selected ? LIGHTBLUE.default : BLACK.placeholder }}>
-                {this.state.email_selected ? <SignUpStyle.InputFieldIcon source={require('../../assets/message_app_color.png')} /> :
-                  <SignUpStyle.InputFieldIcon source={require('../../assets/message_black.png')} />}
-                <SignUpStyle.InputField
-                  onFocus={() => this.setState({ email_selected: true })}
-                  onEndEditing={() => this.setState({ email_selected: false })}
-                />
-              </SignUpStyle.InputFieldAndIconView>
-            </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 4.5}}>
+              First name
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputField placeholder= "First"/>
+          </SignUpStyle.TextInputWrapper>
 
-            <SignUpStyle.TextInputWrapper>
-              <SignUpStyle.TextInputText>
-                {this.state.f_name_selected && 'First Name'}
-              </SignUpStyle.TextInputText>
-              <SignUpStyle.InputFieldAndIconView style={{ borderBottomColor: this.state.f_name_selected ? LIGHTBLUE.default : BLACK.placeholder }}>
-                {this.state.f_name_selected ? <SignUpStyle.InputFieldIcon source={require('../../assets/person_app_color.png')} /> :
-                  <SignUpStyle.InputFieldIcon source={require('../../assets/person_black.png')} />}
-                <SignUpStyle.InputField
-                  onFocus={() => this.setState({ f_name_selected: true })}
-                  onEndEditing={() => this.setState({ f_name_selected: false })}
-                />
-              </SignUpStyle.InputFieldAndIconView>
-            </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 4.5}}>
+              Last name
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputField placeholder= "Last"/>
+          </SignUpStyle.TextInputWrapper>
 
-            <SignUpStyle.TextInputWrapper>
-              <SignUpStyle.TextInputText>
-                {this.state.l_name_selected && 'Last Name'}
-              </SignUpStyle.TextInputText>
-              <SignUpStyle.InputFieldAndIconView style={{ borderBottomColor: this.state.emailSelected ? LIGHTBLUE.default : BLACK.placeholder }}>
-                {this.state.l_name_selected ? <SignUpStyle.InputFieldIcon source={require('../../assets/person_app_color.png')} /> :
-                  <SignUpStyle.InputFieldIcon source={require('../../assets/person_black.png')} />}
-                <SignUpStyle.InputField
-                  onFocus={() => this.setState({ l_name_selected: true })}
-                  onEndEditing={() => this.setState({ l_name_selected: false })}
-                />
-              </SignUpStyle.InputFieldAndIconView>
-            </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 4.5}}>
+              Age
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputField keyboardType= "numeric" placeholder= "Age" />
+          </SignUpStyle.TextInputWrapper>
 
-            <SignUpStyle.TextInputWrapper>
-              <SignUpStyle.TextInputText>
-                {this.state.pin_selected && 'Password'}
-              </SignUpStyle.TextInputText>
-              <SignUpStyle.InputFieldAndIconView style={{ borderBottomColor: this.state.pin_selected ? LIGHTBLUE.default : BLACK.placeholder }}>
-                {this.state.pin_selected ? <SignUpStyle.InputFieldIcon source={require('../../assets/lock_app_color.png')} /> :
-                  <SignUpStyle.InputFieldIcon source={require('../../assets/lock_black.png')} />}
-                <SignUpStyle.InputField
-                  onFocus={() => this.setState({ pin_selected: true })}
-                  onEndEditing={() => this.setState({ pin_selected: false })}
-                />
-              </SignUpStyle.InputFieldAndIconView>
-            </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 4.5}}>
+              Weight
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputField keyboardType= "numeric" placeholder= "Weight" />
+          </SignUpStyle.TextInputWrapper>
 
-            <SignUpStyle.TextInputWrapper>
-              <SignUpStyle.TextInputText>
-                {this.state.phone_selected && 'Phone No.'}
-              </SignUpStyle.TextInputText>
-              <SignUpStyle.InputFieldAndIconView style={{ borderBottomColor: this.state.phone_selected ? LIGHTBLUE.default : BLACK.placeholder }}>
-                {this.state.phone_selected ? <SignUpStyle.InputFieldIcon source={require('../../assets/phone_app_color.png')} /> :
-                  <SignUpStyle.InputFieldIcon source={require('../../assets/phone_black.png')} />}
-                <SignUpStyle.InputField
-                  onFocus={() => this.setState({ phone_selected: true })}
-                  onEndEditing={() => this.setState({ phone_selected: false })}
-                />
-              </SignUpStyle.InputFieldAndIconView>
-            </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 4.5}}>
+              Height
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputField placeholder= "Height" />
+          </SignUpStyle.TextInputWrapper>
 
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 2.5}}>
+              Gender
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputFieldWithIcon style={{backgroundColor: LIGHTBLUE.light, borderWidth: 0}}>
+              <SignUpStyle.GenderWrapper>
+                <SignUpStyle.ToogleButton
+                  onPress={() => this.setState({male: true})}
+                  style={{backgroundColor: this.state.male ? LIGHTBLUE.default : LIGHTBLUE.dull, borderWidth: 1, borderColor: WHITE.dark}}>
+                  <SignUpStyle.SignInButtonText>
+                    Male
+                  </SignUpStyle.SignInButtonText>
+                  </SignUpStyle.ToogleButton>
+                <SignUpStyle.ToogleButton
+                  onPress={() => this.setState({male: false})}
+                  style={{backgroundColor: this.state.male ? LIGHTBLUE.dull : LIGHTBLUE.default, borderWidth: 1, borderColor: WHITE.dark}}>
+                <SignUpStyle.SignInButtonText>
+                    Female
+                  </SignUpStyle.SignInButtonText>
+                  </SignUpStyle.ToogleButton>
+              </SignUpStyle.GenderWrapper>
+            </SignUpStyle.InputFieldWithIcon>
+          </SignUpStyle.TextInputWrapper>
+
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 2.5}}>
+              Primary Symptom
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputFieldWithIcon>
+              <SignUpStyle.InputField
+                placeholder= "Symptom"
+                style={{width: SCREEN.width / 2, marginLeft: 0}}/>
+              <SignUpStyle.AbsoluteIcon source={require ('../../assets/search.png')} />
+            </SignUpStyle.InputFieldWithIcon>
+          </SignUpStyle.TextInputWrapper>
+
+          <SignUpStyle.TextInputWrapper>
+            <SignUpStyle.TextInputText style={{width: SCREEN.width / 2.5}}>
+              Search Condition(s)
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.InputFieldWithIcon>
+              <SignUpStyle.InputField
+                placeholder= "Symptom"
+                style={{width: SCREEN.width / 2, marginLeft: 0}}/>
+              <SignUpStyle.AbsoluteIcon source={require ('../../assets/search.png')} />
+            </SignUpStyle.InputFieldWithIcon>
+          </SignUpStyle.TextInputWrapper>
+          <SignUpStyle.TextInputText style={{marginLeft: 10}}>
+              List Conditions(s)
+            </SignUpStyle.TextInputText>
+            <SignUpStyle.ListConditionTextInput 
+                placeholder= "Enter Conditions"
+                multiline={true} />
             <SignUpStyle.SignInButton>
               <SignUpStyle.SignInButtonText>
                 SIGN UP

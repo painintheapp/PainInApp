@@ -38,6 +38,7 @@ export const GRAY = {
 export const LIGHTBLUE = {
   default: '#0039F8',
   light: 'rgba(145, 191, 238, 1)',
+  dull: 'regba(85, 170, 217, 1)'
 };
 
 export const CLEAR = 'transparent';

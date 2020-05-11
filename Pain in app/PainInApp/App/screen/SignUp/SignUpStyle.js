@@ -4,11 +4,11 @@ import { BLACK, WHITE, BLUE, APPCOLOR, LIGHTBLUE } from '../../helper/Color';
 const SignUpStyle = {
   WrapperViewVertical: styled.View`
     flex: 1;
-    backgroundColor: ${WHITE.dark};
+    backgroundColor: ${LIGHTBLUE.light};
   `,
   ScrollViewVertical: styled.ScrollView`
   flex: 1;
-  backgroundColor: ${WHITE.dark};
+  backgroundColor: ${LIGHTBLUE.light};
 `,
   TopView: styled.View`
     height: 60;
@@ -35,14 +35,14 @@ const SignUpStyle = {
   `,
   TextInputWrapper: styled.View`
     height: 55px;
-    width: ${SCREEN.width - 40};
+    width: ${SCREEN.width - 20};
     alignSelf: center;
-    marginTop: 5px;
+    marginTop: 8px;
+    flexDirection: row;
+    alignItems: center;
   `,
   TextInputText: styled.Text`
-    fontSize: 13px;
-    color: ${LIGHTBLUE.default};
-    marginLeft: 40px;
+    fontSize: 17px;
   `,
   LoginText: styled.Text`
     fontSize: 28px;
@@ -50,36 +50,63 @@ const SignUpStyle = {
     marginTop: ${SCREEN.height / 10};
     marginLeft: 20px;
   `,
-  InputFieldAndIconView: styled.View`
-    flexDirection: row;
-    flex: 1;
-    borderBottomWidth: 1px;
-    borderBottomColor: ${BLACK.placeholder};
-    alignItems: center;
-  `,
-  InputFieldIcon: styled.Image`
-    height: 20;
-    width: 30;
-    resizeMode: contain;
-  `,
   InputField: styled.TextInput`
     height: 40px;
-    width: ${SCREEN.width - 80}px;
+    width: ${SCREEN.width - 120}px;
     paddingLeft: 10px;
+    borderWidth: 1px;
+    backgroundColor: ${WHITE.dark};
+    marginLeft: 10px;
+    borderColor: ${WHITE.dark};
   `,
   SignInButton: styled.TouchableOpacity`
     height: 64px;
     width: ${SCREEN.width - 60}px;
-    marginTop: 60px;
+    marginTop: 15px;
+    marginBottom: 15px;
     alignSelf: center;
     alignItems: center;
     justifyContent: center;
-    borderRadius: 32px;
     backgroundColor: ${LIGHTBLUE.default};
+  `,
+  InputFieldWithIcon: styled.View`
+    height: 40px;
+    width: ${SCREEN.width / 2}px;
+    borderWidth: 1px;
+    backgroundColor: ${WHITE.dark};
+    marginLeft: 10px;
+    borderColor: ${WHITE.dark};
+    justifyContent: center;
+    alignItems: center;
+  `,
+  GenderWrapper: styled.View`
+    height: 35px;
+    width: ${SCREEN.width / 2.5};
+    flexDirection: row;
+  `,
+  ToogleButton: styled.TouchableOpacity`
+    flex: 1;
+    justifyContent: center;
+    alignItems: center;
+  `,
+
+  AbsoluteIcon: styled.Image`
+    position: absolute;
+    right: 5px;
+    height: 30px;
+    width: 30px;
   `,
   SignInButtonText: styled.Text`
     color: ${WHITE.dark};
     fontSize: 20px;
+  `,
+  ListConditionTextInput: styled.TextInput`
+    height: 100px;
+    width: ${SCREEN.width - 30}px;
+    alignSelf: center;
+    backgroundColor: ${WHITE.dark};
+    marginTop: 10px;
+    padding: 5px;
   `,
 };
 
