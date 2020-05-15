@@ -6,7 +6,6 @@ import { Calendar } from 'react-native-calendars';
 
 import * as Actions from '../../redux/actions';
 import HomeScreenStyles from './HomeStyles';
-import Header from '../../component/Header';
 
 class Home extends Component {
   constructor(props) {

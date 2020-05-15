@@ -2,12 +2,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import PhoneInput from 'react-native-phone-input';
 
 import * as Actions from '../../redux/actions';
 import SignUpStyle from './SignUpStyle';
 import { BLACK, WHITE, APPCOLOR, LIGHTBLUE } from '../../helper/Color';
-import Header from '../../component/Header';
 import Loader from '../../component/Loader';
 import { SCREEN } from '../../helper/Constant';
 

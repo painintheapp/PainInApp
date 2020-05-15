@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import * as Actions from '../../redux/actions';
 import AddPainStyles from './AddPainStyles';
-import Header from '../../component/Header';
 import { BLACK, WHITE} from '../../helper/Color';
 
 class AddPain extends Component {

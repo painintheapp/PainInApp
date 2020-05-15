@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 
 import * as Actions from '../../redux/actions';
 import PainListStyles from './PainListStyles';
-import Header from '../../component/Header';
 
 class PainList extends Component {
   constructor(props) {
