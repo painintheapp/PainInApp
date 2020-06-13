@@ -1,3 +1,12 @@
+# Overview
+project is configured in a Yarn Monorepo
+
+# App 
+App is built with expo, using typescript and react
+
+# Server
+Server is modeled in postgres(sql) and redis, using Graphql and typescript
+
 # Installation
 1. Install dependencies in the app directory  
 `yarn`
@@ -5,8 +14,8 @@
 `yarn start`
 
 # Workflow
-do not work on master branch
-
+- Do not work on master branch
+- Create a new branch for work submissions (see `New Branch naming` seciton for instructions)
 
 # Maintain Scope of work
 1. Work on new branches must not exceed the requirements of work specified in clubhouse ticket

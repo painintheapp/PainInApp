@@ -2,23 +2,13 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
-@Entity("users")
-export class User extends BaseEntity {
+@Entity("conditions")
+export class Condition extends BaseEntity {
   @Field(() => ID)
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
   @Column("text", { unique: true })
-  username: string;
-
-  @Field()
-  @Column("text", { unique: true })
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column("bool", { default: false })
-  confirmed: boolean;
+  conditionname: string;
 }
