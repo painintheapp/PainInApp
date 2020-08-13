@@ -11,6 +11,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 interface SearchConditionsState {
     searchcondition: string;
     searchconditionlist: Array<any>;
+    selectedlist: Array<any>;
+    searched: boolean;
 }
 
 interface OwnProps {
@@ -44,6 +46,8 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
         this.state = {
             searchcondition: '',
             searchconditionlist: [],
+            selectedlist: [],
+            searched: false,
         };
     }
 
@@ -67,7 +71,7 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
                             containerStyle={[styles.containerStyle, { width: '90%' }]}
                             inputStyle={[styles.inputStyle]}
                             inputContainerStyle={[styles.inputContainerStyle, { marginTop: -5 }]}
-                            onChangeText={(value) => this.filtered("searchcondition", value)}
+                            onChangeText={(value) => this.filtered('searchcondition', value)}
                             leftIcon={<Icon name="search" type="feather" color="#000" size={18} />}
                             value={this.state.searchcondition}
                             placeholder={"Search"} />
@@ -80,7 +84,7 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
                                             return (
                                                 <TouchableOpacity onPress={() => {
                                                     this.onChange('searchcondition', item)
-                                                    this.setState({ searchconditionlist: [] })
+                                                    this.setState({ searchconditionlist: [], searched: true })
                                                 }} style={styles.searchedItem}>
                                                     <Text>{item ? item : 'No Product Found'}</Text>
                                                 </TouchableOpacity>
@@ -95,16 +99,22 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
                         }
                         <Text style={styles.doyouknow}>{"Do you know your condition? "}<Text>Click here</Text></Text>
                     </View>
-                    <Button title="Select Condition" buttonStyle={styles.register} containerStyle={styles.buttonContainer} />
+                    <Button title="Select Condition" disabled={!this.state.searched} buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.onSubmit} />
                 </View>
             </React.Fragment>
         );
     };
 
+    private onSubmit = () => {
+        this.setState({ searchcondition: '' })
+        this.props.navigation.navigate('SelectedCondition', { condition: this.state.selectedlist });
+    }
+
     private onChange = (name: string, value: any) => {
         this.setState(prevState => ({
             ...prevState,
             [name]: value,
+            selectedlist: [...prevState.selectedlist, value]
         }));
     }
 
@@ -112,20 +122,32 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
         this.setState(prevState => ({
             ...prevState,
             [name]: value,
-        }));
-        if (value) {
-            const re = new RegExp(value, 'i');
-            var filtered = list.filter(entry => Object.values(entry).some(val => typeof val === "string" && val.match(re)));
-            this.setState(prevState => ({
-                ...prevState,
-                [name + 'list']: filtered,
-            }));
-        } else {
-            this.setState(prevState => ({
-                ...prevState,
-                [name + 'list']: list,
-            }));
-        }
+            searched: false
+        }), () => {
+            let state = this.state[name];
+            if (state) {
+                let text = state.toLowerCase()
+                let filteredName = list.filter((item) => {
+                    return item.toLowerCase().match(text)
+                })
+                if (!text || text === '') {
+                    this.setState(prevState => ({
+                        ...prevState,
+                        [name + 'list']: list,
+                    }));
+                } else if (Array.isArray(filteredName)) {
+                    this.setState(prevState => ({
+                        ...prevState,
+                        [name + 'list']: filteredName,
+                    }));
+                }
+            } else {
+                this.setState(prevState => ({
+                    ...prevState,
+                    [name + 'list']: list,
+                }));
+            }
+        });
     }
 }
 
@@ -142,7 +164,7 @@ const styles = StyleSheet.create({
     containerStyle: { backgroundColor: '#fff', height: 40, alignItems: 'center' },
     inputContainerStyle: { borderBottomWidth: 0 },
     inputStyle: { fontSize: 14, width: '100%', height: 40, color: '#000080', },
-    searchView: { zIndex: 20, height: '50%', elevation: 3, borderWidth: 0, width: '90%', borderRadius: 0, marginBottom: 20, backgroundColor: '#fff' },
+    searchView: { zIndex: 20, maxHeight: '70%', elevation: 3, borderWidth: 0, width: '90%', borderRadius: 0, marginBottom: 20, backgroundColor: '#fff' },
     searchedItem: { width: '100%', alignItems: 'flex-start', height: 35, justifyContent: 'center', paddingLeft: 10, borderBottomWidth: 1, borderBottomColor: '#d7d7d7' }
 })
 

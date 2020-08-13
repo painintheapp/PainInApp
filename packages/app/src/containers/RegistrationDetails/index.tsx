@@ -216,20 +216,33 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
         this.setState(prevState => ({
             ...prevState,
             [name]: value,
-        }));
-        if (value) {
-            const re = new RegExp(value, 'i');
-            var filtered = list.filter(entry => Object.values(entry).some(val => typeof val === "string" && val.match(re)));
-            this.setState(prevState => ({
-                ...prevState,
-                [name + 'list']: filtered,
-            }));
-        } else {
-            this.setState(prevState => ({
-                ...prevState,
-                [name + 'list']: list,
-            }));
-        }
+            searched: false
+        }), () => {
+            let state = this.state[name];
+            if (state) {
+                let text = state.toLowerCase()
+                let filteredName = list.filter((item) => {
+                    return item.toLowerCase().match(text)
+                })
+                console.warn(text, filteredName);
+                if (!text || text === '') {
+                    this.setState(prevState => ({
+                        ...prevState,
+                        [name + 'list']: list,
+                    }));
+                } else if (Array.isArray(filteredName)) {
+                    this.setState(prevState => ({
+                        ...prevState,
+                        [name + 'list']: filteredName,
+                    }));
+                }
+            } else {
+                this.setState(prevState => ({
+                    ...prevState,
+                    [name + 'list']: list,
+                }));
+            }
+        });
     }
 
     private next = () => {
@@ -249,7 +262,7 @@ const styles = StyleSheet.create({
     containerStyle: { backgroundColor: '#fff', height: 40, alignItems: 'center' },
     inputContainerStyle: { borderBottomWidth: 0 },
     inputStyle: { fontSize: 14, width: '100%', height: 40, color: '#000080', },
-    searchView: { zIndex: 20, height: 100, elevation: 3, borderWidth: 0, width: '90%', borderRadius: 0, marginBottom: 20, backgroundColor: '#fff' },
+    searchView: { zIndex: 20, maxHeight: 100, elevation: 3, borderWidth: 0, width: '90%', borderRadius: 0, marginBottom: 20, backgroundColor: '#fff' },
     searchedItem: { width: '100%', alignItems: 'flex-start', height: 35, justifyContent: 'center', paddingLeft: 10, borderBottomWidth: 1, borderBottomColor: '#d7d7d7' }
 })
 
