@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {
-    ImageBackground,
-    Image,
     Text,
     View,
     StyleSheet,
