@@ -25,21 +25,17 @@ class LandingPage extends React.Component<Props, LandingPageState> {
         };
     }
 
-
-    public componentDidMount() {
-    }
-
     public render() {
 
         return (
             <React.Fragment>
-                <ImageBackground source={require("../../../assets/image/bg.jpg")} resizeMode="cover" style={styles.container}>
+                <ImageBackground source={require("../../../assets/images/background.jpg")} resizeMode="cover" style={styles.container}>
                     <View style={styles.mainView}>
                         <View style={{ width: '100%', alignItems: 'center' }}>
                             <Text style={styles.heading}>PAIN IN THE APP</Text>
                             <Text style={styles.subheading}>a chronic pain management tool</Text>
                         </View>
-                        <Image style={styles.logo} resizeMode="contain" source={require("../../../assets/image/logo.png")} />
+                        <Image style={styles.logo} resizeMode="contain" source={require("../../../assets/images/logo.png")} />
                         <View >
                             <Button
                                 onPress={this._signup}
