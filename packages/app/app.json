@@ -12,8 +12,17 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover"
+    },
+    "android": {
+      "splash": {
+        "mdpi": "./assets/splash.png",
+        "hdpi": "./assets/splash.png",
+        "xhdpi": "./assets/splash.png",
+        "xxhdpi": "./assets/splash.png",
+        "xxxhdpi": "./assets/splash.png",
+        "resizeMode": "cover"
+      }
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,6 +31,10 @@
       "**/*"
     ],
     "ios": {
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "cover"
+      },
       "supportsTablet": true
     }
   }
