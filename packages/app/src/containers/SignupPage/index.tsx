@@ -38,7 +38,7 @@ class SignupPage extends React.Component<Props, SignupPageState> {
 
         return (
             <React.Fragment>
-                <ImageBackground source={require("../../../assets/image/bg.jpg")} resizeMode="cover" style={styles.container}>
+                <ImageBackground source={require("../../../assets/images/background.jpg")} resizeMode="cover" style={styles.container}>
                     <View style={styles.mainView}>
                         <View style={styles.horizontalCenter}>
                             <Text style={styles.heading}>PAIN IN THE APP</Text>
