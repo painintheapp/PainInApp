@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     inputPlaceholder: { color: '#000', fontSize: 14 },
     genderView: { borderColor: '#fff', borderWidth: 1, borderRadius: 5, flexDirection: 'row', alignItems: 'center' },
     genderBox: { width: 90, height: 30, alignItems: 'center', justifyContent: 'center', borderColor: '#fff', borderWidth: 1, },
-    buttonContainer: { width: '75%', marginTop: 20 },
+    buttonContainer: { width: '75%', marginTop: 20, marginBottom: 30 },
     register: { backgroundColor: '#035EC7', borderRadius: 5 },
     containerStyle: { backgroundColor: '#fff', height: 40, alignItems: 'center' },
     inputContainerStyle: { borderBottomWidth: 0 },
