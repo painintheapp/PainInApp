@@ -8,7 +8,6 @@ import {
 import { Button, Input } from "react-native-elements";
 
 interface SignupPageState {
-    fullname: string;
     email: string;
     password: string;
 }
@@ -24,7 +23,6 @@ class SignupPage extends React.Component<Props, SignupPageState> {
         super(props);
 
         this.state = {
-            fullname: '',
             email: '',
             password: '',
         };
@@ -46,13 +44,6 @@ class SignupPage extends React.Component<Props, SignupPageState> {
                         </View>
                         <View style={styles.horizontalCenter}>
                             <Text style={styles.signupText}>Sign up</Text>
-                            <Input
-                                containerStyle={styles.containerStyle}
-                                inputStyle={styles.inputStyle}
-                                inputContainerStyle={styles.inputContainerStyle}
-                                onChangeText={(fullname) => this.setState({ fullname })}
-                                value={this.state.fullname}
-                                placeholder="Full name" />
                             <Input
                                 containerStyle={styles.containerStyle}
                                 inputStyle={styles.inputStyle}
