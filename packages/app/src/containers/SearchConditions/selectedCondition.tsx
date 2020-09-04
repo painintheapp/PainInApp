@@ -42,7 +42,7 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
                 <View style={styles.container}>
                     <View style={styles.topView}>
                         <Text style={styles.heading}>{Conditions}</Text>
-                        <Text style={styles.subheading}>{"This condition has been added to your journal. Do you suufer from any other conditions?"}</Text>
+                        <Text style={styles.subheading}>{"This condition has been added to your journal. Do you suffer from any other conditions?"}</Text>
                         <CheckBox
                             center
                             title='Yes'
