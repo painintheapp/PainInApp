@@ -98,13 +98,13 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
                                                             this.onChange('searchcondition', item)
                                                             this.setState({ searchconditionlist: [], searched: true })
                                                         }} style={styles.searchedItem}>
-                                                            <Text>{item ? item : 'No Product Found'}</Text>
+                                                            <Text>{item ? item : 'No condition found'}</Text>
                                                         </TouchableOpacity>
                                                     )
                                                 })
                                             }
                                             {
-                                                this.state.searchconditionlist == [] ? <Text>No product found</Text> : null
+                                                this.state.searchconditionlist == [] ? <Text>No condition found</Text> : null
                                             }
                                         </ScrollView>
                                         : null
