@@ -3,7 +3,8 @@ import {
     Text,
     View,
     StyleSheet,
-    StatusBar
+    StatusBar,
+    SafeAreaView
 } from 'react-native';
 import { Icon } from "react-native-elements";
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -37,11 +38,11 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
         return (
             <React.Fragment>
                 <StatusBar backgroundColor="#035EC7" />
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     {leftIcon && <TouchableOpacity><Icon name="menu" type="feather" color={"#fff"} /></TouchableOpacity>}
                     <Text style={styles.titleText}>{title}</Text>
                     {rightIcon && <TouchableOpacity><Icon name="settings" type="Ionicons" color={"#fff"} /></TouchableOpacity>}
-                </View>
+                </SafeAreaView>
             </React.Fragment>
         );
     };
@@ -51,7 +52,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
 
 const styles = StyleSheet.create({
-    container: { backgroundColor: '#035EC7', height: 60, padding: 15, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
+    container: { backgroundColor: '#035EC7', height: 60, padding: 20, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
     titleText: { color: '#fff', fontSize: 18 }
 })
 
