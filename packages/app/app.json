@@ -22,7 +22,8 @@
         "xxhdpi": "./assets/splash.png",
         "xxxhdpi": "./assets/splash.png",
         "resizeMode": "cover"
-      }
+      },
+      "package": "com.paininapp.app"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
