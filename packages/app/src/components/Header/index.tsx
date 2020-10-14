@@ -49,7 +49,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
 
 const styles = StyleSheet.create({
-    container: { backgroundColor: '#035EC7', height: 80, padding: 20, paddingTop: 40, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
+    container: { backgroundColor: '#035EC7', height: 80, padding: 15, paddingTop: 40, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
     titleText: { color: '#fff', fontSize: 18 }
 })
 
