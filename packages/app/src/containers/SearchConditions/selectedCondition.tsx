@@ -165,6 +165,7 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
         if (!no) {
             this.setState({ addCondition: true })
         } else {
+            this.props.navigation.navigate('LifeStyle')
         }
     }
 
