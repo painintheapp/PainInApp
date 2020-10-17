@@ -98,6 +98,7 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                     title={'PAIN IN THE APP'}
                     leftIcon={true}
                     rightIcon={true}
+                    search={false}
                     navigation={this.props.navigation} />
                 <ScrollView contentContainerStyle={{ alignItems: 'center', }} style={styles.container}>
                     <InputArea

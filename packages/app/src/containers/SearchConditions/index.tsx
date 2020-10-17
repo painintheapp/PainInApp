@@ -62,6 +62,7 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
                     title={'PAIN IN THE APP'}
                     leftIcon={true}
                     rightIcon={true}
+                    search={false}
                     navigation={this.props.navigation} />
                 <View style={styles.container}>
                     <View style={styles.topView}>
