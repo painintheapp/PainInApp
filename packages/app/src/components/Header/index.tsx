@@ -3,7 +3,6 @@ import {
     Text,
     View,
     StyleSheet,
-    StatusBar
 } from 'react-native';
 import { Icon } from "react-native-elements";
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -36,7 +35,6 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
         const { title, leftIcon, rightIcon } = this.props;
         return (
             <React.Fragment>
-                <StatusBar backgroundColor="#035EC7" />
                 <View style={styles.container}>
                     {leftIcon && <TouchableOpacity><Icon name="menu" type="feather" color={"#fff"} /></TouchableOpacity>}
                     <Text style={styles.titleText}>{title}</Text>
@@ -51,7 +49,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
 
 const styles = StyleSheet.create({
-    container: { backgroundColor: '#035EC7', height: 60, padding: 15, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
+    container: { backgroundColor: '#035EC7', height: 80, padding: 15, paddingTop: 40, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
     titleText: { color: '#fff', fontSize: 18 }
 })
 
