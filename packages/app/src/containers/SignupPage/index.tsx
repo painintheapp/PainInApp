@@ -10,6 +10,8 @@ import { Button, Input } from "react-native-elements";
 interface SignupPageState {
     email: string;
     password: string;
+    invalidEmail: boolean;
+    invalidPass: boolean;
 }
 
 interface OwnProps {
@@ -25,6 +27,8 @@ class SignupPage extends React.Component<Props, SignupPageState> {
         this.state = {
             email: '',
             password: '',
+            invalidEmail: false,
+            invalidPass: false,
         };
     }
 
@@ -33,6 +37,7 @@ class SignupPage extends React.Component<Props, SignupPageState> {
     }
 
     public render() {
+        const { invalidEmail, invalidPass, email, password } = this.state;
 
         return (
             <React.Fragment>
@@ -50,17 +55,31 @@ class SignupPage extends React.Component<Props, SignupPageState> {
                                 inputContainerStyle={styles.inputContainerStyle}
                                 onChangeText={(email) => this.setState({ email })}
                                 value={this.state.email}
+                                onBlur={this.checkEmail}
                                 keyboardType="email-address"
                                 placeholder="Email" />
+                            {
+                                invalidEmail ?
+                                    <View style={styles.errorText}>
+                                        <Text style={styles.errorTextColor}>invalid email</Text>
+                                    </View> : null
+                            }
                             <Input
                                 containerStyle={styles.containerStyle}
                                 inputStyle={styles.inputStyle}
                                 inputContainerStyle={styles.inputContainerStyle}
                                 onChangeText={(password) => this.setState({ password })}
                                 value={this.state.password}
+                                onBlur={this.checkPass}
                                 secureTextEntry
                                 placeholder="Password" />
-                            <Button onPress={this.signup} buttonStyle={styles.register} containerStyle={{ width: '75%' }} titleStyle={styles.titleStyle} title="Create your account" />
+                            {
+                                invalidPass ?
+                                    <View style={styles.errorText}>
+                                        <Text style={styles.errorTextColor}>A password containing at least 1 uppercase, 1 lowercase, 1 digit, 1 special character and have a length of at least of 6</Text>
+                                    </View> : null
+                            }
+                            <Button disabled={(email && password && invalidPass == false) ? false : true} onPress={this.signup} buttonStyle={styles.register} containerStyle={{ width: '75%' }} titleStyle={styles.titleStyle} title="Create your account" />
                         </View>
                         <View style={styles.horizontalCenter}>
                             <Text style={styles.termsText}>By creating an account, you agree to our <Text style={styles.underline}>Terms</Text></Text>
@@ -74,6 +93,33 @@ class SignupPage extends React.Component<Props, SignupPageState> {
 
     private signup = () => {
         this.props.navigation.navigate("Registration")
+    }
+
+    private checkEmail = () => {
+        const { email } = this.state;
+        const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/
+        if (regex.test(email)) {
+            if (email != '') {
+                this.setState({ invalidEmail: false })
+            } else {
+                this.setState({ email: '' })
+            }
+        } else {
+            this.setState({ email: '', invalidEmail: true })
+        }
+    }
+    private checkPass = () => {
+        const { password } = this.state;
+        const regex = /^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/
+        if (regex.test(password)) {
+            if (password != '') {
+                this.setState({ invalidPass: false })
+            } else {
+                this.setState({ password: '' })
+            }
+        } else {
+            this.setState({ invalidPass: true })
+        }
     }
 }
 
@@ -91,7 +137,9 @@ const styles = StyleSheet.create({
     termsText: { color: 'rgba(255,255,255,0.5)', marginTop: 10 },
     containerStyle: { width: '80%' },
     inputContainerStyle: { borderBottomWidth: 0 },
-    inputStyle: { fontSize: 14, color: '#000080', backgroundColor: '#fff', paddingLeft: 10 }
+    inputStyle: { fontSize: 14, color: '#000080', backgroundColor: '#fff', paddingLeft: 10 },
+    errorText: { width: '75%', alignItems: 'flex-start', marginTop: -10, marginBottom: 10 },
+    errorTextColor: { color: 'red' }
 })
 
 export const Signup = SignupPage;
