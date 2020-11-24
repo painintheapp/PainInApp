@@ -12,9 +12,10 @@ interface LifeStyleState {
     isVitamins: boolean;
     isExercise: boolean;
     isTeam: boolean;
-    vname: string;
-    vaditional: string;
-    vaditional1: string;
+    vitaminsName: string;
+    vitaminsName1: string;
+    vitaminsName2: string;
+    typeOfExercise: string;
 }
 
 interface OwnProps {
@@ -55,9 +56,10 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
             isVitamins: false,
             isExercise: false,
             isTeam: false,
-            vname: '',
-            vaditional: '',
-            vaditional1: '',
+            vitaminsName: '',
+            vitaminsName1: '',
+            vitaminsName2: '',
+            typeOfExercise: '',
         };
     }
 
@@ -96,18 +98,18 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                             <View style={{ width: '60%', marginBottom: 20 }}>
                                 <InputArea
                                     placeholder="Vitamin Name"
-                                    name="vname"
-                                    value={this.state.vname}
+                                    name="vitaminsName"
+                                    value={this.state.vitaminsName}
                                     onChange={this.onChange} />
                                 <InputArea
                                     placeholder="Additional Vitamin"
-                                    name="vaditional"
-                                    value={this.state.vaditional}
+                                    name="vitaminsName1"
+                                    value={this.state.vitaminsName1}
                                     onChange={this.onChange} />
                                 <InputArea
                                     placeholder="Additional Vitamin"
-                                    name="vaditional1"
-                                    value={this.state.vaditional1}
+                                    name="vitaminsName2"
+                                    value={this.state.vitaminsName2}
                                     onChange={this.onChange} />
                             </View>
                         </View>
@@ -131,8 +133,8 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                         <View style={{ width: '60%', marginBottom: 20 }}>
                             <InputArea
                                 placeholder="Ex. Cardio"
-                                name="vname"
-                                value={this.state.vname}
+                                name="typeOfExercise"
+                                value={this.state.typeOfExercise}
                                 onChange={this.onChange} />
                         </View>
                     </View>
