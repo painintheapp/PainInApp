@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { Component } from 'react';
-import { Landing, Signup, Registration,SearchConditions, SelectedCondition } from '../containers';
+import { Landing, Signup, Registration,SearchConditions, SelectedCondition,MainMenu } from '../containers';
 import { createStackNavigator } from '@react-navigation/stack';
 
 class Navigator extends Component {
@@ -15,6 +15,7 @@ class Navigator extends Component {
                     <Stack.Screen name="Registration" component={Registration} />
                     <Stack.Screen name="SearchConditions" component={SearchConditions} />
                     <Stack.Screen name="SelectedCondition" component={SelectedCondition} />
+                    <Stack.Screen name="MainMenu" component={MainMenu} />
                 </Stack.Navigator>
             </NavigationContainer>
         );
