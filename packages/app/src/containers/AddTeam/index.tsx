@@ -4,6 +4,7 @@ import {
     View,
     StyleSheet,
     ScrollView,
+    Switch,
 } from 'react-native';
 import { Button, Input, Icon } from "react-native-elements";
 import { Header } from "../../components";
@@ -21,6 +22,7 @@ interface AddTeamState {
     invalidEmailB: boolean;
     invalidEmailC: boolean;
     invalidEmailD: boolean;
+    hippa: boolean;
 }
 
 interface OwnProps {
@@ -80,6 +82,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
             invalidEmailB: false,
             invalidEmailC: false,
             invalidEmailD: false,
+            hippa: false,
         };
     }
 
@@ -88,7 +91,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
     }
 
     public render() {
-        const { invalidEmailA, invalidEmailB, invalidEmailC, invalidEmailD } = this.state;
+        const { invalidEmailA, invalidEmailB, invalidEmailC, invalidEmailD ,hippa} = this.state;
         return (
             <React.Fragment>
                 <Header
@@ -158,6 +161,10 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                                 <Text style={styles.errorTextColor}>invalid email</Text>
                             </View> : null
                     }
+                    <View style={styles.toggleView}>
+                        <Text>HIPPA</Text>
+                        <Switch value={hippa} onValueChange={(value) => this.setState({ hippa: value })} />
+                    </View>
                     <Button title="Save to Journal" buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.next} />
                 </ScrollView>
             </React.Fragment>
@@ -238,7 +245,8 @@ const styles = StyleSheet.create({
     inputStyle: { fontSize: 14, width: '100%', height: 40, color: '#000080', },
     userIcon: { backgroundColor: '#000', borderRadius: 3, padding: 2 },
     errorText: { width: '60%', alignItems: 'flex-end', marginTop: -10, marginBottom: 10 },
-    errorTextColor: { color: 'red' }
+    errorTextColor: { color: 'red' },
+    toggleView: { flexDirection: 'row', alignItems: 'center' }
 })
 
 export const AddTeams = AddTeam;
