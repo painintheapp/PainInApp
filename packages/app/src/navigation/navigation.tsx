@@ -10,12 +10,12 @@ class Navigator extends Component {
         return (
             <NavigationContainer>
                 <Stack.Navigator headerMode={"none"}>
-                    <Stack.Screen name="AddTeams" component={AddTeams} />
                     <Stack.Screen name="Landing" component={Landing} />
                     <Stack.Screen name="Signup" component={Signup} />
                     <Stack.Screen name="Registration" component={Registration} />
                     <Stack.Screen name="SearchConditions" component={SearchConditions} />
                     <Stack.Screen name="SelectedCondition" component={SelectedCondition} />
+                    <Stack.Screen name="AddTeams" component={AddTeams} />
                 </Stack.Navigator>
             </NavigationContainer>
         );
