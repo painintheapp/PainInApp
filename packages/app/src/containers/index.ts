@@ -4,3 +4,4 @@ export * from './RegistrationDetails';
 export * from './SearchConditions';
 export * from './SearchConditions/selectedCondition';
 export * from './MainMenu';
+export * from './LifeStyle';
