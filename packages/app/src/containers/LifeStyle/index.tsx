@@ -12,9 +12,10 @@ interface LifeStyleState {
     isVitamins: boolean;
     isExercise: boolean;
     isTeam: boolean;
-    vname: string;
-    vaditional: string;
-    vaditional1: string;
+    vitaminsName: string;
+    vitaminsName1: string;
+    vitaminsName2: string;
+    typeOfExercise: string;
 }
 
 interface OwnProps {
@@ -55,9 +56,10 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
             isVitamins: false,
             isExercise: false,
             isTeam: false,
-            vname: '',
-            vaditional: '',
-            vaditional1: '',
+            vitaminsName: '',
+            vitaminsName1: '',
+            vitaminsName2: '',
+            typeOfExercise: '',
         };
     }
 
@@ -73,7 +75,6 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                     title={'PAIN IN THE APP'}
                     leftIcon={true}
                     rightIcon={true}
-                    search={false}
                     navigation={this.props.navigation} />
                 <View style={styles.container}>
                     <Text style={styles.heading}>LifeStyle</Text>
@@ -85,7 +86,7 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                                 trackColor={{ false: "#767577", true: "#035EC7" }}
                                 thumbColor={isVitamins ? "#035EC7" : "#f4f3f4"}
                                 ios_backgroundColor="#3e3e3e"
-                                onValueChange={this.toggleSwitch}
+                                onValueChange={this.toggleSwitchVitamins}
                                 value={isVitamins}
                             />
                         </View>
@@ -97,18 +98,18 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                             <View style={{ width: '60%', marginBottom: 20 }}>
                                 <InputArea
                                     placeholder="Vitamin Name"
-                                    name="vname"
-                                    value={this.state.vname}
+                                    name="vitaminsName"
+                                    value={this.state.vitaminsName}
                                     onChange={this.onChange} />
                                 <InputArea
                                     placeholder="Additional Vitamin"
-                                    name="vaditional"
-                                    value={this.state.vaditional}
+                                    name="vitaminsName1"
+                                    value={this.state.vitaminsName1}
                                     onChange={this.onChange} />
                                 <InputArea
                                     placeholder="Additional Vitamin"
-                                    name="vaditional1"
-                                    value={this.state.vaditional1}
+                                    name="vitaminsName2"
+                                    value={this.state.vitaminsName2}
                                     onChange={this.onChange} />
                             </View>
                         </View>
@@ -122,7 +123,7 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                                 trackColor={{ false: "#767577", true: "#035EC7" }}
                                 thumbColor={isExercise ? "#035EC7" : "#f4f3f4"}
                                 ios_backgroundColor="#3e3e3e"
-                                onValueChange={this.toggleSwitch}
+                                onValueChange={this.toggleSwitchExercise}
                                 value={isExercise}
                             />
                         </View>
@@ -132,8 +133,8 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                         <View style={{ width: '60%', marginBottom: 20 }}>
                             <InputArea
                                 placeholder="Ex. Cardio"
-                                name="vname"
-                                value={this.state.vname}
+                                name="typeOfExercise"
+                                value={this.state.typeOfExercise}
                                 onChange={this.onChange} />
                         </View>
                     </View>
@@ -145,12 +146,12 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                                 trackColor={{ false: "#767577", true: "#035EC7" }}
                                 thumbColor={isTeam ? "#035EC7" : "#f4f3f4"}
                                 ios_backgroundColor="#3e3e3e"
-                                onValueChange={this.toggleSwitch}
+                                onValueChange={this.toggleSwitchTeam}
                                 value={isTeam}
                             />
                         </View>
                     </View>
-                    <Button title="Start your pain management" buttonStyle={styles.startPainButton} containerStyle={styles.startPainContainer} onPress={this.onSubmit} />
+                    <Button title="Start your pain management" buttonStyle={styles.startPainButton} containerStyle={styles.startPainContainer} />
                 </View>
             </React.Fragment>
         );
@@ -163,11 +164,9 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
         }));
     }
 
-    private onSubmit = () => {
-        this.props.navigation.navigate('PainTeam');
-    }
-
-    toggleSwitch = () => this.setState(previousState => ({ isVitamins: !previousState.isVitamins }));
+    toggleSwitchVitamins = () => this.setState(previousState => ({ isVitamins: !previousState.isVitamins }));
+    toggleSwitchExercise = () => this.setState(previousState => ({ isExercise: !previousState.isExercise }));
+    toggleSwitchTeam = () => this.setState(previousState => ({ isTeam: !previousState.isTeam }));
 }
 
 
@@ -175,7 +174,7 @@ const styles = StyleSheet.create({
     container: { backgroundColor: '#93BEF2', flex: 1, alignItems: 'center', paddingVertical: 20 },
     heading: { fontWeight: 'bold', fontSize: 16 },
     row: { flexDirection: 'row', justifyContent: 'space-between', width: '90%', alignItems: 'center' },
-    switchrow: { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' },
+    switchrow: { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginTop: 15 },
     inputView: { width: '100%', marginBottom: 10 },
     halfwidth: { width: '50%' },
     startPainButton: { backgroundColor: '#035EC7', borderRadius: 5 },
