@@ -17,7 +17,7 @@ class Navigator extends Component {
                     <Stack.Screen name="SelectedCondition" component={SelectedCondition} />
                     <Stack.Screen name="AddTeams" component={AddTeams} />
  					<Stack.Screen name="LifeStyle" component={LifeStyle} />
-                Stack.Navigator>
+                </Stack.Navigator>
             </NavigationContainer>
         );
     }
