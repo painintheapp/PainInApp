@@ -151,7 +151,7 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                             />
                         </View>
                     </View>
-                    <Button title="Start your pain management" buttonStyle={styles.startPainButton} containerStyle={styles.startPainContainer} />
+                    <Button title="Start your pain management" buttonStyle={styles.startPainButton} containerStyle={styles.startPainContainer} onPress={this.handleSubmit} />
                 </View>
             </React.Fragment>
         );
@@ -162,6 +162,14 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
             ...prevState,
             [name]: value,
         }));
+    }
+
+    private handleSubmit = () => {
+        if (this.state.isTeam) {
+            this.props.navigation.navigate('AddTeams')
+        } else {
+            this.props.navigation.navigate('MainMenu')
+        }
     }
 
     toggleSwitchVitamins = () => this.setState(previousState => ({ isVitamins: !previousState.isVitamins }));
