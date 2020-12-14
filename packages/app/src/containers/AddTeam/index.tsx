@@ -10,10 +10,10 @@ import { Button, Input, Icon } from "react-native-elements";
 import { Header } from "../../components";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 interface AddTeamState {
-    team1: string;
-    team2: string;
-    team3: string;
-    team4: string;
+    teamA: string;
+    teamB: string;
+    teamC: string;
+    teamD: string;
     emailA: string;
     emailB: string;
     emailC: string;
@@ -70,10 +70,10 @@ class AddTeam extends React.Component<Props, AddTeamState> {
         super(props);
 
         this.state = {
-            team1: '',
-            team2: '',
-            team3: '',
-            team4: '',
+            teamA: '',
+            teamB: '',
+            teamC: '',
+            teamD: '',
             emailA: '',
             emailB: '',
             emailC: '',
@@ -111,7 +111,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                         mail="emailA"
                         checkEmail={this.checkEmail}
                         email={this.state.emailA}
-                        value={this.state.team1}
+                        value={this.state.teamA}
                         onChange={this.onChange} />
                     {
                         invalidEmailA ?
@@ -125,7 +125,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                         mail="emailB"
                         checkEmail={this.checkEmail}
                         email={this.state.emailB}
-                        value={this.state.team2}
+                        value={this.state.teamB}
                         onChange={this.onChange} />
                     {
                         invalidEmailB ?
@@ -139,7 +139,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                         mail="emailC"
                         name="teamC"
                         email={this.state.emailC}
-                        value={this.state.team3}
+                        value={this.state.teamC}
                         onChange={this.onChange} />
                     {
                         invalidEmailC ?
@@ -153,7 +153,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                         name="teamD"
                         mail="emailD"
                         email={this.state.emailD}
-                        value={this.state.team4}
+                        value={this.state.teamD}
                         onChange={this.onChange} />
                     {
                         invalidEmailD ?
