@@ -22,21 +22,16 @@ interface OwnProps {
 type Props = OwnProps;
 
 var list: Array<any> = [
-    "fever",
-    "cough",
-    "sore throat",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
+    "Chiari Malformation",
+    "Fibromyalgia",
+    "Hydrocephalus",
+    "Inflammatory Bowel Syndrome",
+    "Migraine",
+    "Rheumatoid Arthritis",
+    "Spinal Stenosis",
+    "Spondylolysis / Spondylolisthesis",
+    "Thryoid Disorders",
+    "Trigeminal Neuralgia",
 ]
 
 class SearchConditionsPage extends React.Component<Props, SearchConditionsState> {

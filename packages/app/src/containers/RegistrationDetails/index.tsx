@@ -36,7 +36,19 @@ interface InputAreaProps {
 
 type Props = OwnProps;
 
-var list: Array<any> = ["fever", "cough", "sore throat", "runny or stuffy nose", "muscle or body aches", "headaches", "fatigue"]
+var list: Array<any> = [
+    "Chiari Malformation",
+    "Fibromyalgia",
+    "Hydrocephalus",
+    "Inflammatory Bowel Syndrome",
+    "Migraine",
+    "Rheumatoid Arthritis",
+    "Spinal Stenosis",
+    "Spondylolysis / Spondylolisthesis",
+    "Thryoid Disorders",
+    "Trigeminal Neuralgia",
+]
+
 const InputArea: React.FC<InputAreaProps> = ({ placeholder, name, value, onChange, searchIcon }) => {
     if (name === 'gender') {
         return (
