@@ -228,6 +228,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
     }
 
     private next = () => {
+        this.props.navigation.navigate("MainMenu")
     }
 }
 
