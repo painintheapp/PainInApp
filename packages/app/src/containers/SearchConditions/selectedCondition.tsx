@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { Button, CheckBox, Icon, Input } from "react-native-elements";
 import { Header } from "../../components";
+import { CONDITIONS_LIST } from "constants/conditions";
+
 interface SearchConditionsState {
     no: boolean;
     addCondition: boolean;
@@ -23,31 +25,6 @@ interface OwnProps {
 }
 
 type Props = OwnProps;
-
-var list: Array<any> = [
-    "Chiari Malformation",
-    "Fibromyalgia",
-    "Hydrocephalus",
-    "Inflammatory Bowel Syndrome",
-    "Migraine",
-    "Rheumatoid Arthritis",
-    "Spinal Stenosis",
-    "Spondylolysis / Spondylolisthesis",
-    "Thryoid Disorders",
-    "Trigeminal Neuralgia",
-    "Abdominal pain",
-    "Generalized body aches",
-    "Headache",
-    "Hearing deficit",
-    "Leg pain",
-    "Loss of body balance and coordination",
-    "Lower backache",
-    "Lower limb sensorimotor deficit",
-    "Muscle soreness and fatigue",
-    "Neck pain",
-    "Oral ulceration",
-    "vomiting and diarrhea / constipation with blood in stool"
-]
 
 class SelectedConditionPage extends React.Component<Props, SearchConditionsState> {
     constructor(props: Props) {
@@ -193,13 +170,13 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
             let state = this.state[name];
             if (state) {
                 let text = state.toLowerCase()
-                let filteredName = list.filter((item) => {
+                let filteredName = CONDITIONS_LIST.filter((item) => {
                     return item.toLowerCase().match(text)
                 })
                 if (!text || text === '') {
                     this.setState(prevState => ({
                         ...prevState,
-                        [name + 'list']: list,
+                        [name + 'list']: CONDITIONS_LIST,
                     }));
                 } else if (Array.isArray(filteredName)) {
                     this.setState(prevState => ({
@@ -210,7 +187,7 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
             } else {
                 this.setState(prevState => ({
                     ...prevState,
-                    [name + 'list']: list,
+                    [name + 'list']: CONDITIONS_LIST,
                 }));
             }
         });

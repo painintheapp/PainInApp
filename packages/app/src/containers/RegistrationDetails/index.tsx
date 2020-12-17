@@ -8,6 +8,8 @@ import {
 import { Button, Input, Icon } from "react-native-elements";
 import { Header } from "../../components";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {SYMPTOMS_LIST} from "constants/symptoms";
+import {CONDITIONS_LIST} from "constants/conditions";
 interface RegistrationDetailsState {
     firstname: string;
     lastname: string;
@@ -47,18 +49,6 @@ var list: Array<any> = [
     "Spondylolysis / Spondylolisthesis",
     "Thryoid Disorders",
     "Trigeminal Neuralgia",
-    "Abdominal pain",
-    "Generalized body aches",
-    "Headache",
-    "Hearing deficit",
-    "Leg pain",
-    "Loss of body balance and coordination",
-    "Lower backache",
-    "Lower limb sensorimotor deficit",
-    "Muscle soreness and fatigue",
-    "Neck pain",
-    "Oral ulceration",
-    "vomiting and diarrhea / constipation with blood in stool"
 ]
 
 const InputArea: React.FC<InputAreaProps> = ({ placeholder, name, value, onChange, searchIcon }) => {
@@ -106,8 +96,8 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
             conditions: '',
             primarysymptom: '',
             searchcondition: '',
-            primarysymptomlist: [],
-            searchconditionlist: [],
+            primarysymptomlist: SYMPTOMS_LIST,
+            searchconditionlist: CONDITIONS_LIST,
         };
     }
 
@@ -154,6 +144,13 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                         name="gender"
                         value={this.state.gender}
                         onChange={this.onChange} />
+
+                    <InputArea
+                        placeholder="Primary Symptom"
+                        name="primarysymptom"
+                        value={this.state.primarysymptom}
+                        searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
+                        onChange={this.filtered} />
                     {
                         this.state.primarysymptomlist && this.state.primarysymptomlist.length ?
                             <ScrollView keyboardDismissMode='none' keyboardShouldPersistTaps="always" style={styles.searchView}>
@@ -176,10 +173,11 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                             </ScrollView>
                             : null
                     }
+
                     <InputArea
-                        placeholder="Primary Symptom"
-                        name="primarysymptom"
-                        value={this.state.primarysymptom}
+                        placeholder="Search Condition(s)"
+                        name="searchcondition"
+                        value={this.state.searchcondition}
                         searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
                         onChange={this.filtered} />
                     {
@@ -204,12 +202,7 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                             </ScrollView>
                             : null
                     }
-                    <InputArea
-                        placeholder="Search Condition(s)"
-                        name="searchcondition"
-                        value={this.state.searchcondition}
-                        searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
-                        onChange={this.filtered} />
+
                     <View style={styles.inputView}>
                         <Text>List Condition(s)</Text>
                     </View>
