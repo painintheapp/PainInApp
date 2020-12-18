@@ -8,9 +8,5 @@ export const CONDITIONS_LIST: String[] = [
     "Spinal Stenosis",
     "Spondylolysis / Spondylolisthesis",
     "Thryoid Disorders",
-    "Trigeminal Neuralgia",
-    'test','test','test','test','test','test','test','test','test','test','test','test','test','test','test','test',
-    'test','test','test','test','test','test','test','test','test','test','test','test','test','test','test','test',
-    'test','test','test','test','test','test','test','test','test','test','test','test','test','test','test','test',
-    'test','test','test','test','test','test','test','test','test','test','test','test','test','test','test','test',
+    "Trigeminal Neuralgia"
 ];
