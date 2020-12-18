@@ -8,6 +8,8 @@ import {
 import { Button, Input, Icon } from "react-native-elements";
 import { Header } from "../../components";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {SYMPTOMS_LIST} from "constants/symptoms";
+import {CONDITIONS_LIST} from "constants/conditions";
 interface RegistrationDetailsState {
     firstname: string;
     lastname: string;
@@ -20,6 +22,11 @@ interface RegistrationDetailsState {
     searchcondition: string;
     primarysymptomlist: Array<any>;
     searchconditionlist: Array<any>;
+    conditionsList: {
+        id: number,
+        name: String
+    }[],
+    selectedConditions: any[]
 }
 
 interface OwnProps {
@@ -36,7 +43,6 @@ interface InputAreaProps {
 
 type Props = OwnProps;
 
-var list: Array<any> = ["fever", "cough", "sore throat", "runny or stuffy nose", "muscle or body aches", "headaches", "fatigue"]
 const InputArea: React.FC<InputAreaProps> = ({ placeholder, name, value, onChange, searchIcon }) => {
     if (name === 'gender') {
         return (
@@ -82,11 +88,15 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
             conditions: '',
             primarysymptom: '',
             searchcondition: '',
-            primarysymptomlist: [],
-            searchconditionlist: [],
+            primarysymptomlist: SYMPTOMS_LIST,
+            searchconditionlist: CONDITIONS_LIST,
+            conditionsList: CONDITIONS_LIST.map((condition, i) => ({
+                id: i,
+                name: condition
+            })),
+            selectedConditions: []
         };
     }
-
 
     public componentDidMount() {
     }
@@ -99,7 +109,8 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                     leftIcon={true}
                     rightIcon={true}
                     navigation={this.props.navigation} />
-                <ScrollView contentContainerStyle={{ alignItems: 'center', }} style={styles.container}>
+
+                <View style={[styles.container, { alignItems: 'center' }]}>
                     <InputArea
                         placeholder="First Name"
                         name="firstname"
@@ -130,6 +141,13 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                         name="gender"
                         value={this.state.gender}
                         onChange={this.onChange} />
+
+                    <InputArea
+                        placeholder="Primary Symptom"
+                        name="primarysymptom"
+                        value={this.state.primarysymptom}
+                        searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
+                        onChange={this.filtered} />
                     {
                         this.state.primarysymptomlist && this.state.primarysymptomlist.length ?
                             <ScrollView keyboardDismissMode='none' keyboardShouldPersistTaps="always" style={styles.searchView}>
@@ -152,55 +170,8 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                             </ScrollView>
                             : null
                     }
-                    <InputArea
-                        placeholder="Primary Symptom"
-                        name="primarysymptom"
-                        value={this.state.primarysymptom}
-                        searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
-                        onChange={this.filtered} />
-                    {
-                        this.state.searchconditionlist && this.state.searchconditionlist.length ?
-                            <ScrollView keyboardDismissMode='none' keyboardShouldPersistTaps="always" style={styles.searchView}>
-                                {
-                                    this.state.searchconditionlist && this.state.searchconditionlist.map(item => {
-
-                                        return (
-                                            <TouchableOpacity onPress={() => {
-                                                this.onChange('searchcondition', item)
-                                                this.setState({ searchconditionlist: [] })
-                                            }} style={styles.searchedItem}>
-                                                <Text>{item ? item : 'No Product Found'}</Text>
-                                            </TouchableOpacity>
-                                        )
-                                    })
-                                }
-                                {
-                                    this.state.searchconditionlist == [] ? <Text>No product found</Text> : null
-                                }
-                            </ScrollView>
-                            : null
-                    }
-                    <InputArea
-                        placeholder="Search Condition(s)"
-                        name="searchcondition"
-                        value={this.state.searchcondition}
-                        searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
-                        onChange={this.filtered} />
-                    <View style={styles.inputView}>
-                        <Text>List Condition(s)</Text>
-                    </View>
-                    <Input
-                        containerStyle={[styles.containerStyle, { width: '80%', height: 80 }]}
-                        inputStyle={[styles.inputStyle]}
-                        multiline={true}
-                        returnKeyType="done"
-                        blurOnSubmit={true}
-                        inputContainerStyle={[styles.inputContainerStyle]}
-                        onChangeText={(value) => this.onChange("conditions", value)}
-                        value={this.state.conditions}
-                        placeholder={"Enter conditions"} />
                     <Button title="Next" buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.next} />
-                </ScrollView>
+                </View>
             </React.Fragment>
         );
     };
@@ -221,14 +192,14 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
             let state = this.state[name];
             if (state) {
                 let text = state.toLowerCase()
-                let filteredName = list.filter((item) => {
+                let filteredName = SYMPTOMS_LIST.filter((item) => {
                     return item.toLowerCase().match(text)
                 })
                 console.warn(text, filteredName);
                 if (!text || text === '') {
                     this.setState(prevState => ({
                         ...prevState,
-                        [name + 'list']: list,
+                        [name + 'list']: SYMPTOMS_LIST,
                     }));
                 } else if (Array.isArray(filteredName)) {
                     this.setState(prevState => ({
@@ -239,14 +210,15 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
             } else {
                 this.setState(prevState => ({
                     ...prevState,
-                    [name + 'list']: list,
+                    [name + 'list']: SYMPTOMS_LIST,
                 }));
             }
         });
     }
 
     private next = () => {
-        this.props.navigation.navigate('SearchConditions')
+        console.log('firstname:', this.state.firstname)
+        this.props.navigation.navigate('SearchConditions', { name: this.state.firstname })
     }
 }
 
@@ -257,7 +229,7 @@ const styles = StyleSheet.create({
     inputPlaceholder: { color: '#000', fontSize: 14 },
     genderView: { borderColor: '#fff', borderWidth: 1, borderRadius: 5, flexDirection: 'row', alignItems: 'center' },
     genderBox: { width: 90, height: 30, alignItems: 'center', justifyContent: 'center', borderColor: '#fff', borderWidth: 1, },
-    buttonContainer: { width: '75%', marginTop: 20, marginBottom: 30 },
+    buttonContainer: { width: '75%', marginTop: 10, marginBottom: 10 },
     register: { backgroundColor: '#035EC7', borderRadius: 5 },
     containerStyle: { backgroundColor: '#fff', height: 40, alignItems: 'center' },
     inputContainerStyle: { borderBottomWidth: 0 },

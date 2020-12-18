@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { Button, CheckBox, Icon, Input } from "react-native-elements";
 import { Header } from "../../components";
+import { CONDITIONS_LIST } from "constants/conditions";
+
 interface SearchConditionsState {
     no: boolean;
     addCondition: boolean;
@@ -23,24 +25,6 @@ interface OwnProps {
 }
 
 type Props = OwnProps;
-
-var list: Array<any> = [
-    "fever",
-    "cough",
-    "sore throat",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-]
 
 class SelectedConditionPage extends React.Component<Props, SearchConditionsState> {
     constructor(props: Props) {
@@ -186,13 +170,13 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
             let state = this.state[name];
             if (state) {
                 let text = state.toLowerCase()
-                let filteredName = list.filter((item) => {
+                let filteredName = CONDITIONS_LIST.filter((item) => {
                     return item.toLowerCase().match(text)
                 })
                 if (!text || text === '') {
                     this.setState(prevState => ({
                         ...prevState,
-                        [name + 'list']: list,
+                        [name + 'list']: CONDITIONS_LIST,
                     }));
                 } else if (Array.isArray(filteredName)) {
                     this.setState(prevState => ({
@@ -203,7 +187,7 @@ class SelectedConditionPage extends React.Component<Props, SearchConditionsState
             } else {
                 this.setState(prevState => ({
                     ...prevState,
-                    [name + 'list']: list,
+                    [name + 'list']: CONDITIONS_LIST,
                 }));
             }
         });

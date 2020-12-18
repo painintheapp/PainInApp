@@ -8,11 +8,12 @@ import {
 import { Button, Input, Icon } from "react-native-elements";
 import { Header } from "../../components";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { CONDITIONS_LIST } from "constants/conditions";
+import MultiSelect from "react-native-multiple-select";
+
 interface SearchConditionsState {
-    searchcondition: string;
-    searchconditionlist: Array<any>;
-    selectedlist: Array<any>;
-    searched: boolean;
+    conditionsList: { id: string, name: String }[]
+    selectedItems: []
 }
 
 interface OwnProps {
@@ -21,41 +22,24 @@ interface OwnProps {
 
 type Props = OwnProps;
 
-var list: Array<any> = [
-    "fever",
-    "cough",
-    "sore throat",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-    "runny or stuffy nose",
-    "muscle or body aches",
-    "headaches",
-    "fatigue",
-]
-
 class SearchConditionsPage extends React.Component<Props, SearchConditionsState> {
     constructor(props: Props) {
         super(props);
 
+        console.log('props:', props)
+
         this.state = {
-            searchcondition: '',
-            searchconditionlist: [],
-            selectedlist: [],
-            searched: false,
+            conditionsList: CONDITIONS_LIST.map((condition, i) => ({id: '' + i, name: condition})),
+            selectedItems: []
         };
     }
-
 
     public componentDidMount() {
     }
 
     public render() {
+        const { name } = this.props.route.params
+
         return (
             <React.Fragment>
                 <Header
@@ -66,88 +50,42 @@ class SearchConditionsPage extends React.Component<Props, SearchConditionsState>
                 <View style={styles.container}>
                     <View style={styles.topView}>
                         <Text style={styles.heading}>{"Conditions"}</Text>
-                        <Text style={styles.subheading}>{"Hi Patty, which condition(s) are you dealing with?"}</Text>
-                        <Input
-                            containerStyle={[styles.containerStyle, { width: '90%' }]}
-                            inputStyle={[styles.inputStyle]}
-                            inputContainerStyle={[styles.inputContainerStyle, { marginTop: -5 }]}
-                            onChangeText={(value) => this.filtered('searchcondition', value)}
-                            leftIcon={<Icon name="search" type="feather" color="#000" size={18} />}
-                            value={this.state.searchcondition}
-                            placeholder={"Search"} />
-                        {
-                            this.state.searchconditionlist && this.state.searchconditionlist.length ?
-                                <ScrollView keyboardDismissMode='none' keyboardShouldPersistTaps="always" style={styles.searchView}>
-                                    {
-                                        this.state.searchconditionlist && this.state.searchconditionlist.map(item => {
+                        <Text style={styles.subheading}>Hi {name}, which condition(s) are you dealing with?</Text>
 
-                                            return (
-                                                <TouchableOpacity onPress={() => {
-                                                    this.onChange('searchcondition', item)
-                                                    this.setState({ searchconditionlist: [], searched: true })
-                                                }} style={styles.searchedItem}>
-                                                    <Text>{item ? item : 'No Product Found'}</Text>
-                                                </TouchableOpacity>
-                                            )
-                                        })
-                                    }
-                                    {
-                                        this.state.searchconditionlist == [] ? <Text>No product found</Text> : null
-                                    }
-                                </ScrollView>
-                                : null
-                        }
-                        <Text style={styles.doyouknow}>{"Do you know your condition? "}<Text>Click here</Text></Text>
+                        <View style={{flex: 1, width: '90%' }}>
+                            <MultiSelect
+                                hideTags
+                                items={this.state.conditionsList}
+                                uniqueKey="id"
+                                onSelectedItemsChange={(items: any) => this.setState({selectedItems: items})}
+                                selectedItems={this.state.selectedItems}
+                                selectText="Select Condition(s)"
+                                searchInputPlaceholderText="Search Items..."
+                                onChangeInput={(text) => console.log(text)}
+                                tagRemoveIconColor="#CCC"
+                                tagBorderColor="#CCC"
+                                tagTextColor="#CCC"
+                                selectedItemTextColor="#CCC"
+                                selectedItemIconColor="#CCC"
+                                itemTextColor="#000"
+                                displayKey="name"
+                                searchInputStyle={{color: '#CCC' }}
+                                styleTextDropdown={{ paddingHorizontal: 10 }}
+                                submitButtonColor="#CCC"
+                                submitButtonText="Submit"
+                            />
+                        </View>
+
                     </View>
-                    <Button title="Select Condition" disabled={!this.state.searched} buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.onSubmit} />
+                    <Button title="Select Condition" disabled={this.state.selectedItems.length === 0} buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.onSubmit} />
                 </View>
             </React.Fragment>
         );
     };
 
     private onSubmit = () => {
-        this.setState({ searchcondition: '' })
-        this.props.navigation.navigate('SelectedCondition', { condition: this.state.selectedlist });
-    }
-
-    private onChange = (name: string, value: any) => {
-        this.setState(prevState => ({
-            ...prevState,
-            [name]: value,
-            selectedlist: [...prevState.selectedlist, value]
-        }));
-    }
-
-    private filtered = (name: string, value: string) => {
-        this.setState(prevState => ({
-            ...prevState,
-            [name]: value,
-            searched: false
-        }), () => {
-            let state = this.state[name];
-            if (state) {
-                let text = state.toLowerCase()
-                let filteredName = list.filter((item) => {
-                    return item.toLowerCase().match(text)
-                })
-                if (!text || text === '') {
-                    this.setState(prevState => ({
-                        ...prevState,
-                        [name + 'list']: list,
-                    }));
-                } else if (Array.isArray(filteredName)) {
-                    this.setState(prevState => ({
-                        ...prevState,
-                        [name + 'list']: filteredName,
-                    }));
-                }
-            } else {
-                this.setState(prevState => ({
-                    ...prevState,
-                    [name + 'list']: list,
-                }));
-            }
-        });
+        this.props.navigation.navigate('LifeStyle', { condition: this.state.selectedItems });
+        this.setState({ selectedItems: [] })
     }
 }
 
@@ -158,7 +96,7 @@ const styles = StyleSheet.create({
     heading: { color: '#000', fontSize: 16, fontWeight: 'bold' },
     subheading: { color: '#000', fontSize: 14, marginBottom: 30, marginTop: 10 },
     doyouknow: { color: '#fff', fontSize: 14, marginBottom: 30, marginTop: 10 },
-    topView: { width: '100%', alignItems: 'center' },
+    topView: { width: '100%', height: 300, alignItems: 'center' },
     buttonContainer: { width: '75%', marginTop: 20 },
     register: { backgroundColor: '#035EC7', borderRadius: 5 },
     containerStyle: { backgroundColor: '#fff', height: 40, alignItems: 'center' },
