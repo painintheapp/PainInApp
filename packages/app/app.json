@@ -23,7 +23,7 @@
         "xxxhdpi": "./assets/splash.png",
         "resizeMode": "cover"
       },
-      "package": "com.paininapp.app"
+      "package": "com.PainLes.app"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

@@ -44,7 +44,7 @@ class SignupPage extends React.Component<Props, SignupPageState> {
                 <ImageBackground source={require("../../../assets/images/background.jpg")} resizeMode="cover" style={styles.container}>
                     <View style={styles.mainView}>
                         <View style={styles.horizontalCenter}>
-                            <Text style={styles.heading}>PAIN IN THE APP</Text>
+                            <Text style={styles.heading}>PainLes</Text>
                             <Text style={styles.subheading}>a chronic pain management tool</Text>
                         </View>
                         <View style={styles.horizontalCenter}>

@@ -105,7 +105,7 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
         return (
             <React.Fragment>
                 <Header
-                    title={'PAIN IN THE APP'}
+                    title={'PainLes'}
                     leftIcon={true}
                     rightIcon={true}
                     navigation={this.props.navigation} />
