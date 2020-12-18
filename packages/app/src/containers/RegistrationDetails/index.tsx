@@ -111,7 +111,6 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                     navigation={this.props.navigation} />
 
                 <View style={[styles.container, { alignItems: 'center' }]}>
-                {/*<ScrollView contentContainerStyle={{ alignItems: 'center', }} style={styles.container} nestedScrollEnabled={true}>*/}
                     <InputArea
                         placeholder="First Name"
                         name="firstname"
@@ -173,7 +172,6 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                     }
                     <Button title="Next" buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.next} />
                 </View>
-                {/*</ScrollView>*/}
             </React.Fragment>
         );
     };
