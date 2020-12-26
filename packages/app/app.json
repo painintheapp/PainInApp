@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "PainLes",
+    "slug": "painles",
+    "scheme": "painles",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -15,6 +16,7 @@
       "resizeMode": "cover"
     },
     "android": {
+      "versionCode": 1,
       "splash": {
         "mdpi": "./assets/splash.png",
         "hdpi": "./assets/splash.png",
@@ -32,11 +34,13 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "0.1.0",
       "splash": {
         "image": "./assets/splash.png",
         "resizeMode": "cover"
       },
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.PainLes.app"
     }
   }
 }
