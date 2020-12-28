@@ -37,7 +37,7 @@ class MainMenuPage extends React.Component<Props, MainMenuPageState> {
             <React.Fragment>
                 <Header
                     title={'PAIN IN THE APP'}
-                    leftIcon={true}
+                    leftIcon={false}
                     rightIcon={true}
                     userIcon={true}
                     navigation={this.props.navigation} />
