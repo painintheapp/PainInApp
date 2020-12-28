@@ -166,6 +166,10 @@ class AddTeam extends React.Component<Props, AddTeamState> {
                         <Switch value={hippa} onValueChange={(value) => this.setState({ hippa: value })} />
                     </View>
                     <Button title="Save to Journal" buttonStyle={styles.register} containerStyle={styles.buttonContainer} onPress={this.next} />
+
+                    <Text style={{ paddingHorizontal: 20, textAlign: 'center' }}>
+                        Members of your pain management team (PMT) may include: Acupuncturist, Physical Therapist, Chiropractor, Massage Therapist, or any other person who helps improve your quality of life.
+                    </Text>
                 </ScrollView>
             </React.Fragment>
         );
