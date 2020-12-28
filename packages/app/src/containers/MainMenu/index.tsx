@@ -36,7 +36,7 @@ class MainMenuPage extends React.Component<Props, MainMenuPageState> {
         return (
             <React.Fragment>
                 <Header
-                    title={'PAIN IN THE APP'}
+                    title={'PainLes'}
                     leftIcon={true}
                     rightIcon={true}
                     userIcon={true}
