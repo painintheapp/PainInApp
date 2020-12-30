@@ -38,6 +38,8 @@ class MainMenuPage extends React.Component<Props, MainMenuPageState> {
                 <Header
                     title={'PAIN IN THE APP'}
                     leftIcon={true}
+                    leftIconName='settings'
+                    onPressLeft={() => this.props.navigation.navigate('Settings')}
                     rightIcon={true}
                     userIcon={true}
                     navigation={this.props.navigation} />
