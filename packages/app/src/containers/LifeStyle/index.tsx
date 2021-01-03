@@ -66,6 +66,24 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
     public componentDidMount = () => {
     }
 
+    private renderExerciseType() {
+        if (!this.state.isExercise) {
+            return null
+        }
+
+        return (
+            <View style={[styles.row, { alignItems: 'flex-start', marginTop: 20 }]}>
+                <Text>Type of exercise</Text>
+                <View style={{ width: '60%', marginBottom: 20 }}>
+                    <InputArea
+                        placeholder="Ex. Cardio"
+                        name="typeOfExercise"
+                        value={this.state.typeOfExercise}
+                        onChange={this.onChange} />
+                </View>
+            </View>
+        )
+    }
 
     public render() {
         const { isVitamins, isExercise, isTeam } = this.state;
@@ -128,16 +146,7 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                             />
                         </View>
                     </View>
-                    <View style={[styles.row, { alignItems: 'flex-start', marginTop: 20 }]}>
-                        <Text>Type of exercise</Text>
-                        <View style={{ width: '60%', marginBottom: 20 }}>
-                            <InputArea
-                                placeholder="Ex. Cardio"
-                                name="typeOfExercise"
-                                value={this.state.typeOfExercise}
-                                onChange={this.onChange} />
-                        </View>
-                    </View>
+                    {this.renderExerciseType()}
                     <View style={styles.row}>
                         <View style={[styles.halfwidth, { flexDirection: 'row' }]}>
                             <Text style={{ paddingTop: 12 }}>
