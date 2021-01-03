@@ -95,7 +95,7 @@ class AddTeam extends React.Component<Props, AddTeamState> {
         return (
             <React.Fragment>
                 <Header
-                    title={'PAIN IN THE APP'}
+                    title={'PainLes'}
                     leftIcon={true}
                     rightIcon={true}
                     navigation={this.props.navigation} />
