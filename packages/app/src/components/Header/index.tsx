@@ -41,7 +41,6 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
                     {leftIcon && <TouchableOpacity onPress={() => navigation.goBack()}><Icon name="chevron-left" type="feather" color={"#fff"}/></TouchableOpacity>}
                     {!leftIcon && <View></View>}
                     <Text style={styles.titleText}>{title}</Text>
-                    {rightIcon && !userIcon && <TouchableOpacity><Icon name="settings" type="Ionicons" color={"#fff"} /></TouchableOpacity>}
                     {rightIcon && userIcon && <TouchableOpacity onPress={this.props.onPressRight}><Icon name="user" type="entypo" color={"#fff"} /></TouchableOpacity>}
                 </View>
             </React.Fragment>
@@ -54,7 +53,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
 const styles = StyleSheet.create({
     container: { backgroundColor: '#035EC7', height: 80, padding: 15, paddingTop: 40, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
-    titleText: { color: '#fff', fontSize: 18, textAlign: 'center' }
+    titleText: { color: '#fff', fontSize: 18, textAlign: 'center', position: 'absolute', left: 100, right: 100, bottom: 15 }
 })
 
 export const Header = HeaderComponent;
