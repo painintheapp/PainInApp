@@ -8,7 +8,7 @@ import {
 import { Icon } from 'react-native-elements';
 import { Header } from "../../components";
 
-interface MainMenuPageState {
+interface UserProfilePageState {
 }
 
 interface OwnProps {
@@ -17,7 +17,7 @@ interface OwnProps {
 
 type Props = OwnProps;
 
-class MainMenuPage extends React.Component<Props, MainMenuPageState> {
+class UserProfilePage extends React.Component<Props, UserProfilePageState> {
     constructor(props: Props) {
         super(props);
 
@@ -26,37 +26,18 @@ class MainMenuPage extends React.Component<Props, MainMenuPageState> {
     }
 
     public render() {
-        const list = [
-            { title: 'SPECIALIST DIRECTORY', name: "store-mall-directory", type: 'material-icons' },
-            { title: 'MY JOURNAL', name: "notebook-multiple", type: 'material-community' },
-            { title: 'EDUCATION', name: "book-search", type: 'material-community' },
-            { title: 'COMMUNITY DISCUSSION', name: "comments", type: 'font-awesome' },
-        ]
-
         return (
             <React.Fragment>
                 <Header
-                    title={'PainLes'}
+                    title={'Profile'}
                     leftIcon={false}
                     rightIcon={true}
                     onPressRight={() => this.props.navigation.openDrawer()}
                     userIcon={true}
-                    navigation={this.props.navigation} />
+                    navigation={this.props.navigation}/>
                 <View style={styles.container}>
                     <View style={styles.mainView}>
-                        <View style={{ width: '100%', alignItems: 'center' }}>
-                            <Text style={styles.heading}>Menu</Text>
-                        </View>
-                        <View style={{ marginTop: 20 }}>
-                            {
-                                list.map((item, index) => (
-                                    <TouchableOpacity key={index} style={styles.items}>
-                                        <Icon name={item.name} type={item.type} size={40} containerStyle={styles.icons} />
-                                        <Text>{item.title}</Text>
-                                    </TouchableOpacity>
-                                ))
-                            }
-                        </View>
+                        <Text>User Profile</Text>
                     </View>
                 </View>
             </React.Fragment>
@@ -81,4 +62,4 @@ const styles = StyleSheet.create({
     login: { width: '100%', marginTop: 20, backgroundColor: '#14CAFF' }
 })
 
-export const MainMenu = MainMenuPage;
+export const UserProfile = UserProfilePage;
