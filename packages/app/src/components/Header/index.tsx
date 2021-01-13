@@ -14,6 +14,8 @@ interface OwnProps {
     navigation: any;
     title: string;
     leftIcon: any;
+    leftIconName?: string;
+    onPressLeft?: () => void;
     rightIcon: any;
     onPressRight?: () => void;
     userIcon: any;
@@ -27,19 +29,29 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
         this.state = {
         };
+
+        this.handlePress = this.handlePress.bind(this);
     }
 
+    private handlePress() {
+        if (this.props.onPressLeft) {
+            this.props.onPressLeft();
+        } else {
+            this.props.navigation.goBack();
+        }
+    }
 
     public componentDidMount() {
     }
 
     public render() {
-        const { title, leftIcon, rightIcon, userIcon } = this.props;
+        const { title, leftIcon, leftIconName, rightIcon, userIcon } = this.props;
         return (
             <React.Fragment>
                 <View style={styles.container}>
-                    {leftIcon && <TouchableOpacity><Icon name="menu" type="feather" color={"#fff"} /></TouchableOpacity>}
+                    {leftIcon && <TouchableOpacity onPress={this.handlePress}><Icon name={leftIconName ?? "chevron-left"} type="feather" color={"#fff"} /></TouchableOpacity>}
                     <Text style={styles.titleText}>{title}</Text>
+                    {!rightIcon && <View></View>}
                     {rightIcon && !userIcon && <TouchableOpacity><Icon name="settings" type="Ionicons" color={"#fff"} /></TouchableOpacity>}
                     {rightIcon && userIcon && <TouchableOpacity onPress={this.props.onPressRight}><Icon name="user" type="entypo" color={"#fff"} /></TouchableOpacity>}
                 </View>
