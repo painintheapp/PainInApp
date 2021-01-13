@@ -6,7 +6,7 @@ import {
     Switch,
     TouchableOpacity
 } from 'react-native';
-import { Button, CheckBox, Icon, Input } from "react-native-elements";
+import {Button, CheckBox, Icon, Input, Tooltip} from "react-native-elements";
 import { Header } from "../../components";
 interface LifeStyleState {
     isVitamins: boolean;
@@ -66,13 +66,31 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
     public componentDidMount = () => {
     }
 
+    private renderExerciseType() {
+        if (!this.state.isExercise) {
+            return null
+        }
+
+        return (
+            <View style={[styles.row, { alignItems: 'flex-start', marginTop: 20 }]}>
+                <Text>Type of exercise</Text>
+                <View style={{ width: '60%', marginBottom: 20 }}>
+                    <InputArea
+                        placeholder="Ex. Cardio"
+                        name="typeOfExercise"
+                        value={this.state.typeOfExercise}
+                        onChange={this.onChange} />
+                </View>
+            </View>
+        )
+    }
 
     public render() {
         const { isVitamins, isExercise, isTeam } = this.state;
         return (
             <React.Fragment>
                 <Header
-                    title={'PAIN IN THE APP'}
+                    title={'PainLes'}
                     leftIcon={true}
                     rightIcon={true}
                     navigation={this.props.navigation} />
@@ -128,18 +146,19 @@ class LifeStylePage extends React.Component<Props, LifeStyleState> {
                             />
                         </View>
                     </View>
-                    <View style={[styles.row, { alignItems: 'flex-start', marginTop: 20 }]}>
-                        <Text>Type of exercise</Text>
-                        <View style={{ width: '60%', marginBottom: 20 }}>
-                            <InputArea
-                                placeholder="Ex. Cardio"
-                                name="typeOfExercise"
-                                value={this.state.typeOfExercise}
-                                onChange={this.onChange} />
-                        </View>
-                    </View>
+                    {this.renderExerciseType()}
                     <View style={styles.row}>
-                        <Text style={styles.halfwidth}>Do you have a pain management team?</Text>
+                        <View style={[styles.halfwidth, { flexDirection: 'row' }]}>
+                            <Text style={{ paddingTop: 12 }}>
+                                Do you have a pain management team?
+                            </Text>
+
+                            <Tooltip height={130} width={250} popover={<Text style={{ color: '#fff' }}>Your pain management team includes health professionals who assist in maximizing your quality of life. (Ex. Neurologist, Physical Therapist)</Text>}>
+                                <Icon name='info' type='feather' color='#000000' style={{ padding: 12 }}/>
+                            </Tooltip>
+                        </View>
+
+
                         <View style={styles.switchrow}>
                             <Text style={styles.yesNo}>{isTeam ? "Yes" : "No"}</Text>
                             <Switch

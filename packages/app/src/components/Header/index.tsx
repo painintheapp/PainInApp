@@ -17,6 +17,7 @@ interface OwnProps {
     leftIconName?: string;
     onPressLeft?: () => void;
     rightIcon: any;
+    onPressRight?: () => void;
     userIcon: any;
 }
 
@@ -52,7 +53,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
                     <Text style={styles.titleText}>{title}</Text>
                     {!rightIcon && <View></View>}
                     {rightIcon && !userIcon && <TouchableOpacity><Icon name="settings" type="Ionicons" color={"#fff"} /></TouchableOpacity>}
-                    {rightIcon && userIcon && <TouchableOpacity><Icon name="user" type="entypo" color={"#fff"} /></TouchableOpacity>}
+                    {rightIcon && userIcon && <TouchableOpacity onPress={this.props.onPressRight}><Icon name="user" type="entypo" color={"#fff"} /></TouchableOpacity>}
                 </View>
             </React.Fragment>
         );
