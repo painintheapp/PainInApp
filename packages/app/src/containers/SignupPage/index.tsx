@@ -3,7 +3,7 @@ import {
     ImageBackground,
     Text,
     View,
-    StyleSheet
+    StyleSheet, TouchableOpacity
 } from 'react-native';
 import { Button, Input } from "react-native-elements";
 
@@ -80,10 +80,14 @@ class SignupPage extends React.Component<Props, SignupPageState> {
                                     </View> : null
                             }
                             <Button disabled={(email && password && invalidPass == false) ? false : true} onPress={this.signup} buttonStyle={styles.register} containerStyle={{ width: '75%' }} titleStyle={styles.titleStyle} title="Create your account" />
+
+
+                            <Text style={styles.signInText}>Already have an account?</Text>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Landing')}><Text style={[styles.underline, { padding: 10 }]}>Sign in</Text></TouchableOpacity>
                         </View>
+
                         <View style={styles.horizontalCenter}>
                             <Text style={styles.termsText}>By creating an account, you agree to our <Text style={styles.underline}>Terms</Text></Text>
-                            <Text style={styles.termsText}>Already have an account <Text style={styles.underline}>Sign in</Text></Text>
                         </View>
                     </View>
                 </ImageBackground>
@@ -134,6 +138,7 @@ const styles = StyleSheet.create({
     signupText: { color: '#000080', fontSize: 26, marginBottom: 20 },
     register: { backgroundColor: '#14CAFF' },
     underline: { textDecorationLine: 'underline' },
+    signInText: { fontSize: 14, marginTop: 12 },
     termsText: { color: 'rgba(255,255,255,0.5)', marginTop: 10 },
     containerStyle: { width: '80%' },
     inputContainerStyle: { borderBottomWidth: 0 },
