@@ -37,7 +37,9 @@ class MainMenuPage extends React.Component<Props, MainMenuPageState> {
             <React.Fragment>
                 <Header
                     title={'PainLes'}
-                    leftIcon={false}
+                    leftIcon={true}
+                    leftIconName='settings'
+                    onPressLeft={() => this.props.navigation.navigate('Settings')}
                     rightIcon={true}
                     onPressRight={() => this.props.navigation.openDrawer()}
                     userIcon={true}

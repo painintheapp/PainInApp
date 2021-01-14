@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { Landing, Signup, Registration,SearchConditions, SelectedCondition,MainMenu,LifeStyle, AddTeams } from '../containers';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import {Settings} from "containers/Settings";
+import {About} from "containers/Settings/About";
+import {Hipaa} from "containers/Settings/Hipaa";
+import {Contact} from "containers/Settings/Contact";
 import {UserProfile} from "components/Drawer/UserProfile";
 import {CustomDrawerContent} from "navigation/CustomDrawerContent";
 
@@ -15,7 +19,7 @@ class DrawerNav extends Component {
             <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props}/>} drawerPosition="right">
                 <Drawer.Screen name="MainMenu" component={MainMenu}/>
                 <Drawer.Screen name="UserProfile" component={UserProfile}/>
-                {/*<Drawer.Screen name="Hipaa" component={Hipaa}/>*/}
+                <Drawer.Screen name="Hipaa" component={Hipaa}/>
             </Drawer.Navigator>
         )
     }
@@ -23,7 +27,6 @@ class DrawerNav extends Component {
 
 class Navigator extends Component {
     render() {
-
         return (
             <NavigationContainer>
                 <Stack.Navigator headerMode={"none"} initialRouteName="Landing" screenOptions={{ gestureEnabled: false }}>
@@ -35,6 +38,10 @@ class Navigator extends Component {
                     <Stack.Screen name="MainMenu" component={DrawerNav} />
                     <Stack.Screen name="LifeStyle" component={LifeStyle} />
                     <Stack.Screen name="AddTeams" component={AddTeams} />
+                    <Stack.Screen name="Settings" component={Settings} />
+                    <Stack.Screen name="About" component={About} />
+                    <Stack.Screen name="HIPAA" component={Hipaa} />
+                    <Stack.Screen name="Contact" component={Contact} />
                 </Stack.Navigator>
             </NavigationContainer>
         );
