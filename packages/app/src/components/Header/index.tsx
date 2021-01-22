@@ -49,7 +49,8 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
         return (
             <React.Fragment>
                 <View style={styles.container}>
-                    {leftIcon && <TouchableOpacity onPress={this.handlePress}><Icon name={leftIconName ?? "chevron-left"} type="feather" color={"#fff"} /></TouchableOpacity>}
+                    {leftIcon && <TouchableOpacity onPress={() => navigation.goBack()}><Icon name="chevron-left" type="feather" color={"#fff"}/></TouchableOpacity>}
+                    {!leftIcon && <View></View>}
                     <Text style={styles.titleText}>{title}</Text>
                     {!rightIcon && <View></View>}
                     {rightIcon && !userIcon && <TouchableOpacity><Icon name="settings" type="Ionicons" color={"#fff"} /></TouchableOpacity>}
@@ -65,7 +66,7 @@ class HeaderComponent extends React.Component<Props, HeaderComponentState> {
 
 const styles = StyleSheet.create({
     container: { backgroundColor: '#035EC7', height: 80, padding: 15, paddingTop: 40, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '100%' },
-    titleText: { color: '#fff', fontSize: 18 }
+    titleText: { color: '#fff', fontSize: 18, textAlign: 'center', position: 'absolute', left: 100, right: 100, bottom: 15 }
 })
 
 export const Header = HeaderComponent;

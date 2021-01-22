@@ -106,7 +106,7 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
             <React.Fragment>
                 <Header
                     title={'PainLes'}
-                    leftIcon={true}
+                    leftIcon={false}
                     rightIcon={true}
                     navigation={this.props.navigation} />
 
@@ -147,7 +147,8 @@ class RegistrationDetails extends React.Component<Props, RegistrationDetailsStat
                         name="primarysymptom"
                         value={this.state.primarysymptom}
                         searchIcon={<Icon name="search" type="feather" color="#000" size={18} />}
-                        onChange={this.filtered} />
+                        onChange={this.filtered}
+                    />
                     {
                         this.state.primarysymptomlist && this.state.primarysymptomlist.length ?
                             <ScrollView keyboardDismissMode='none' keyboardShouldPersistTaps="always" style={styles.searchView}>

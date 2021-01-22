@@ -29,7 +29,7 @@ class Navigator extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Stack.Navigator headerMode={"none"} initialRouteName="MainMenu" screenOptions={{ gestureEnabled: false }}>
+                <Stack.Navigator headerMode={"none"} initialRouteName="Landing" screenOptions={{ gestureEnabled: false }}>
                     <Stack.Screen name="Landing" component={Landing} />
                     <Stack.Screen name="Signup" component={Signup} />
                     <Stack.Screen name="Registration" component={Registration} />
