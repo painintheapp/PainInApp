@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74.52" height="99.359" viewBox="0 0 74.52 99.359">
+  <g id="Group_6" data-name="Group 6" transform="translate(18.52 -81)">
+    <path id="Icon_open-map-marker" data-name="Icon open-map-marker" d="M37.26,0A37.21,37.21,0,0,0,0,37.26c0,24.84,37.26,62.1,37.26,62.1S74.52,62.1,74.52,37.26A37.21,37.21,0,0,0,37.26,0Zm0,12.42a24.853,24.853,0,0,1,8.029,48.369A24.567,24.567,0,0,1,37.26,62.1a24.84,24.84,0,0,1,0-49.68Z" transform="translate(-18.52 81)" fill="#14de42"/>
+    <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M18,20.25A10.125,10.125,0,1,0,7.875,10.125,10.128,10.128,0,0,0,18,20.25Zm9,2.25H23.126a12.24,12.24,0,0,1-10.252,0H9a9,9,0,0,0-9,9v1.125A3.376,3.376,0,0,0,3.375,36h29.25A3.376,3.376,0,0,0,36,32.625V31.5A9,9,0,0,0,27,22.5Z" transform="translate(0.48 98)" fill="#0d7dd9"/>
+  </g>
+</svg>

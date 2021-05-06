@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"unique":true,"key":{"vitaminId":{"$numberInt":"1"}},"name":"vitaminId_1","background":true}],"uuid":"b33e30458d9642ebbe199b5a2ec0cee9","collectionName":"vitamins"}

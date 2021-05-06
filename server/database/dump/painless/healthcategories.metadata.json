@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"unique":true,"key":{"categoryId":{"$numberInt":"1"}},"name":"categoryId_1","background":true}],"uuid":"606dbec7411f4f26bf239c55ce4c8b8f","collectionName":"healthcategories"}

@@ -1,0 +1,6 @@
+module Pods_painless {
+  umbrella header "Pods-painless-umbrella.h"
+
+  export *
+  module * { export * }
+}

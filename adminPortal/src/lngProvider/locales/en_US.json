@@ -1,0 +1,247 @@
+{
+  "leftMenu.dashboard": "Dashboard",
+  "leftMenu.specialist": "Specialist",
+  "leftMenu.education": "Education",
+  "leftMenu.community": "Community",
+  "leftMenu.setting": "Settings",
+  "leftMenu.catagory": "Catagory",
+  "leftMenu.polls": "Polls",
+  "leftMenu.blog": "Blog",
+  "leftMenu.users":"Users",
+
+
+
+"community.pageTitle":"Comminuty",
+"community.id": "ID",
+"community.fullName": "Community Name",
+"community.users": "Users",
+"community.addModal.community": "Community",
+"community.fullname_message": "Community name is required",
+"community.actions.remove":"Delete",
+"community.addModal.save":"Add",
+"community.addModal.update":"Update",
+"community.addModal.cancel":"Cancel",
+"community.addNew":"Add New",
+
+
+
+"catagory.no":"No",
+"catagory.pageTitle":"Catagory",
+"catagory.catagory":"Catagory",
+"catagory.subcatagory":"Sub Catagory",
+"catagory.addModal.catagory":"New Catagory",
+"catagory.catagoryName":"Catagory",
+"catagory.actions.remove":"Delete",
+"catagory.fullname_message":"Catagory name is required",
+"catagory.addModal.update":"Update",
+
+
+
+
+
+
+
+
+"education.addModal.education":"Education",
+"education.no":"No.",
+"education.catagory":"Catagory",
+"education.subcatagory":"Sub Catagory",
+"education.article":"Article",
+"education.pageTitle":"Education",
+"education.views":"Views",
+"education.addModal.updateQuestion":"New Education",
+"education.form.catagory":"Catagory",
+"education.catagory_message":"Select catagory first",
+"education.form.subcatagory":"Sub Catagory",
+"education.subcatagory_message":"Sub Catagory is required",
+"education.article_message":"Article required",
+"education.form.article":"Article",
+"education.addModal.save":"Save",
+"education.addModal.update":"Update",
+"education.addModal.cancel":"Cancel",
+"education.actions.remove":"Delete",
+
+
+  "dp.addModal.updateQuestion": "Specialist",
+  "dp.addNew": "Add New",
+  "dp.fullName": "Full Name",
+  "dp.profession": "Profession",
+  "dp.phoneNumber": "Phone No.",
+  "dp.email": "Email",
+  "dp.location": "Location",
+  "dp.facebook": "Facebook",
+  "dp.twitter": "Twitter",
+  "dp.youtube": "youtube",
+  "dp.linkedIn": "LinkedIn",
+  "dp.addModal.save": "Add",
+  "dp.addModal.cancel": "Cancel",
+  "dp.profession_message":"Please enter your profession",
+  "dp.fullname_message": "Full Name is required",
+  "dp.phonenumber_message": "Phone Number is required",
+  "dp.email_message": "Email is required",
+  "dp.location_message": "Location is required",
+  "dp.facebook_message": "Facebook link is required",
+  "dp.twitter_message": "Twitter link is required ",
+  "dp.youtube_message": "Youtub link is required",
+  "dp.linkedIn_message": "LinkedIn link is required",
+  "dp.addModal.newQuestion":"Specialist",
+
+
+
+
+
+  "dashboard.totalClient": "Total Client",
+  "dashboard.totalLeads": "Total Leads",
+  "dashboard.approvedLeads": "Approved Leads",
+  "dashboard.unApprovedLeads": "Unapproved Leads",
+  "dashboard.revenueOverview": "Revenue Overview",
+  "dashboard.totalRevenue": "Total Revenue",
+  "dashboard.channels": "Channels",
+  "dashboard.activeLeads": "Active Leads",
+  "dashboard.notifications": "Notifications",
+  "dashboard.weeklyAnalysis": "Weekly Analysis",
+
+
+
+
+  "specialist.pageTitle": "Specialist",
+  "specialist.id": "ID",
+  "specialist.fullName": "Full Name",
+  "specialist.PhoneNo": "Phone No.",
+  "specialist.Email": "Email",
+  "specialist.Location": "Location",
+  "specialist.facebook": "facebook",
+  "specialist.twitter": "twitter",
+  "specialist.youtube": "youtube",
+  "specialist.linkedin": "linkedin",
+  "specialist.actions.remove":"Delete",
+  "specialist.addModal.update":"Update",
+
+
+
+
+  "settings.membershipPlanSetting": "Membership Plan Setting",
+  "settings.planName1": "Plan Name 1",
+  "settings.planName1_placeholder": "Free",
+  "settings.planName1_message": "Please enter plan name",
+  "settings.price1": "Price",
+  "settings.price1_placeholder": "0",
+  "settings.price1_message": "Please enter the price",
+  "settings.GST1": "GST",
+  "settings.GST1_placeholder": "0",
+  "settings.GST1_message": "Please enter the GST",
+  "settings.planName2": "Plan Name 2",
+  "settings.planName2_placeholder": "Premium",
+  "settings.planName2_message": "Please enter the Plan name",
+  "settings.price2": "Price",
+  "settings.price2_placeholder": "50",
+  "settings.price2_message": "Please enter the price",
+  "settings.GST2": "GST",
+  "settings.GST2_placeholder": "6.50",
+  "settings.GST2_message": "Please enter the GST",
+  "settings.saveChanges": "Save changes",
+  "settings.profile.email": "Email",
+  "settings.profile.phone": "Phone",
+  "settings.profile.changePassword": "Change password",
+  "settings.profile.edit": "Edit",
+  "settings.passwordModal.changePassword": "Change Password",
+  "settings.passwordModal.currentPassword": "Current Password",
+  "settings.passwordModal.currentPassword_message": "please enter the current password",
+  "settings.passwordModal.newPassword": "New Password",
+  "settings.passwordModal.newPassword_message": "please enter the new password",
+  "settings.passwordModal.confirmPassword": "Confirm Password",
+  "settings.passwordModal.confirmPassword_message": "please enter the confirm password",
+  "settings.passwordModal.passwordNotMatchMessage": "The two passwords that you entered do not match!",
+  "settings.passwordModal.cancel": "Cancel",
+  "settings.passwordModal.save": "Save",
+  "settings.editModal.updateProfile": "Update profile",
+  "settings.editModal.clientName": "Client Name",
+  "settings.editModal.clientName_message": "Please enter client name",
+  "settings.editModal.firstName": "First Name",
+  "settings.editModal.firstName_message": "Please enter the first name",
+  "settings.editModal.lastName": "Last Name",
+  "settings.editModal.lastName_message": "Please enter the last name",
+  "settings.editModal.fullName": "Full Name",
+  "settings.editModal.fullName_message": "please enter full name",
+  "settings.editModal.email": "Email",
+  "settings.editModal.email_message": "Please enter email",
+  "settings.editModal.phone": "Phone",
+  "settings.editModal.phone_message": "Please enter phone number",
+  "settings.editModal.cancel": "Cancel",
+  "settings.editModal.save": "Save",
+
+
+
+
+
+
+"polls.pageTitle":"Polls",
+"polls.id":"ID",
+"polls.user":"Users",
+"polls.community":"Community",
+"polls.startDate":"Start Date",
+"polls.endDate":"End Date",
+"polls.status":"Status",
+"polls.actions.remove":"Delete",
+"polls.addModal.addPolls":"Polls",
+"polls.addModal.save":"Add",
+"polls.addModal.cancel":"Cancel",
+"polls.pollname":"Poll Name",
+"polls.pollname_message":"Poll name is required",
+"polls.form.community":"Community Name",
+"polls.community_message":"Select community first",
+"polls.form.startDate":"Start Date",
+"polls.startDate_message":"Polls Start date is required",
+"polls.form.endDate":"End Date",
+"polls.endDate_message":"Polls End date is required",
+"polls.addModal.editpolls":"Polls",
+"polls.addModal.polls":"Polls",
+"polls.addModal.update":"Update",
+
+
+
+
+
+
+"blog.pageTitle":"Blog",
+"blog.id":"ID",
+"blog.community":"Community",
+"blog.title":"Title",
+"blog.article":"Article",
+"blog.form.community":"Community",
+"blog.addModal.addBlog":"New Article",
+"blog.addModal.save":"Add",
+"blog.addModal.cancel":"Cancel",
+"blog.community_message":"Select Community first",
+"blog.form.title":"Title",
+"blog.title_message":"Title is required",
+"blog.addNew":"Add New",
+"blog.addModal.updatepage":"Edit Blog",
+"blog.addModal.update":"Update",
+"blog.form.article":"Article",
+"blog.article_message":"article is required",
+"blog.actions.remove":"Delete",
+
+
+
+"user.pageTitle":"Users",
+"users.actions.remove":"Delete",
+"user.id":"ID",
+"user.fullName":"Full Name",
+"user.email":"Email",
+
+
+
+"exercise.category.no":"No",
+"exercise.category.pageTitle":"Catagory",
+"exercise.category.catagory":"Catagory",
+"exercise.category.subcatagory":"Sub Catagory",
+"exercise.category.addModal.catagory":"New Catagory",
+"exercise.category.catagoryName":"Catagory",
+"exercise.category.actions.remove":"Delete",
+"exercise.category.fullname_message":"Catagory name is required",
+"exercise.category.addModal.update":"Update"
+
+
+
+}
